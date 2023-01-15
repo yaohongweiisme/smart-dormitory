@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.dormitory.stuDormitory.mapper.DormitoryMapper">
+    
+    <resultMap type="Dormitory" id="DormitoryResult">
+        <result property="dorId"    column="dor_id"    />
+        <result property="stuId"    column="stu_id"    />
+        <result property="location"    column="location"    />
+        <result property="capacity"    column="capacity"    />
+        <result property="presentNumber"    column="present_number"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <sql id="selectDormitoryVo">
+        select dor_id, stu_id, location, capacity, present_number, status from dormitory
+    </sql>
+
+    <select id="selectDormitoryList" parameterType="Dormitory" resultMap="DormitoryResult">
+        <include refid="selectDormitoryVo"/>
+        <where>  
+            <if test="stuId != null  and stuId != ''"> and stu_id = #{stuId}</if>
+            <if test="location != null  and location != ''"> and location = #{location}</if>
+            <if test="capacity != null "> and capacity = #{capacity}</if>
+            <if test="presentNumber != null "> and present_number = #{presentNumber}</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectDormitoryByDorId" parameterType="String" resultMap="DormitoryResult">
+        <include refid="selectDormitoryVo"/>
+        where dor_id = #{dorId}
+    </select>
+        
+    <insert id="insertDormitory" parameterType="Dormitory">
+        insert into dormitory
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="dorId != null">dor_id,</if>
+            <if test="stuId != null">stu_id,</if>
+            <if test="location != null and location != ''">location,</if>
+            <if test="capacity != null">capacity,</if>
+            <if test="presentNumber != null">present_number,</if>
+            <if test="status != null">status,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="dorId != null">#{dorId},</if>
+            <if test="stuId != null">#{stuId},</if>
+            <if test="location != null and location != ''">#{location},</if>
+            <if test="capacity != null">#{capacity},</if>
+            <if test="presentNumber != null">#{presentNumber},</if>
+            <if test="status != null">#{status},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDormitory" parameterType="Dormitory">
+        update dormitory
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="stuId != null">stu_id = #{stuId},</if>
+            <if test="location != null and location != ''">location = #{location},</if>
+            <if test="capacity != null">capacity = #{capacity},</if>
+            <if test="presentNumber != null">present_number = #{presentNumber},</if>
+            <if test="status != null">status = #{status},</if>
+        </trim>
+        where dor_id = #{dorId}
+    </update>
+
+    <delete id="deleteDormitoryByDorId" parameterType="String">
+        delete from dormitory where dor_id = #{dorId}
+    </delete>
+
+    <delete id="deleteDormitoryByDorIds" parameterType="String">
+        delete from dormitory where dor_id in 
+        <foreach item="dorId" collection="array" open="(" separator="," close=")">
+            #{dorId}
+        </foreach>
+    </delete>
+
+</mapper>

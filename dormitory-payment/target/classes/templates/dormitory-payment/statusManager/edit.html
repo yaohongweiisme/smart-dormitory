@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改缴费状态')" />
+    <th:block th:include="include :: datetimepicker-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-statusManager-edit" th:object="${paymentStatus}">
+            <input name="statusId" th:field="*{statusId}" type="hidden">
+<!--            <div class="form-group">    -->
+<!--                <label class="col-sm-3 control-label">缴费项目id：</label>-->
+<!--                <div class="col-sm-8">-->
+<!--                    <input name="projectId" th:field="*{projectId}" class="form-control" type="text">-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="form-group">
+                <label class="col-sm-3 control-label">缴费宿舍id：</label>
+                <div class="col-sm-8">
+                    <input name="dormitoryId" th:field="*{dormitoryId}" class="form-control" type="text" readonly="readonly">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">缴费进度：</label>
+                <div class="col-sm-8">
+                    <!--                    <input name="projectProgress" th:field="*{projectProgress}" class="form-control" type="text">-->
+                    <select th:field="${paymentStatus.status}" name="status" th:value="${paymentStatus.status}"  required>
+                        <option  th:selected="${paymentStatus.status==0}" value=0>未缴费</option>
+                        <option th:selected="${paymentStatus.status==1}"  value=1>缴费完成</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">完成缴费时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="finishTime" th:value="${#dates.format(paymentStatus.finishTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <script th:inline="javascript">
+        var prefix = ctx + "dormitory-payment/statusManager";
+        $("#form-statusManager-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-statusManager-edit').serialize());
+            }
+        }
+
+        $("input[name='finishTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+    </script>
+</body>
+</html>

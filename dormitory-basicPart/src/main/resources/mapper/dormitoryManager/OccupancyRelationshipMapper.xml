@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.dormitory.ocpRelationship.mapper.OccupancyRelationshipMapper">
+    
+    <resultMap type="OccupancyRelationship" id="OccupancyRelationshipResult">
+        <result property="ocpId"    column="ocp_id"    />
+        <result property="stuId"    column="stu_id"    />
+        <result property="dormitoryId"    column="dormitory_id"    />
+        <result property="bedNumber"    column="bed_number"    />
+        <result property="startTime"    column="start_time"    />
+        <result property="endTime"    column="end_time"    />
+    </resultMap>
+
+    <sql id="selectOccupancyRelationshipVo">
+        select ocp_id, stu_id, dormitory_id, bed_number, start_time, end_time from occupancyRelationship
+    </sql>
+
+    <select id="selectOccupancyRelationshipList" parameterType="OccupancyRelationship" resultMap="OccupancyRelationshipResult">
+        <include refid="selectOccupancyRelationshipVo"/>
+        <where>  
+            <if test="stuId != null  and stuId != ''"> and stu_id = #{stuId}</if>
+            <if test="dormitoryId != null  and dormitoryId != ''"> and dormitory_id = #{dormitoryId}</if>
+            <if test="bedNumber != null "> and bed_number = #{bedNumber}</if>
+            <if test="startTime != null "> and start_time = #{startTime}</if>
+            <if test="endTime != null "> and end_time = #{endTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectOccupancyRelationshipByOcpId" parameterType="String" resultMap="OccupancyRelationshipResult">
+        <include refid="selectOccupancyRelationshipVo"/>
+        where ocp_id = #{ocpId}
+    </select>
+        
+    <insert id="insertOccupancyRelationship" parameterType="OccupancyRelationship">
+        insert into occupancyRelationship
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ocpId != null">ocp_id,</if>
+            <if test="stuId != null and stuId != ''">stu_id,</if>
+            <if test="dormitoryId != null">dormitory_id,</if>
+            <if test="bedNumber != null">bed_number,</if>
+            <if test="startTime != null">start_time,</if>
+            <if test="endTime != null">end_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ocpId != null">#{ocpId},</if>
+            <if test="stuId != null and stuId != ''">#{stuId},</if>
+            <if test="dormitoryId != null">#{dormitoryId},</if>
+            <if test="bedNumber != null">#{bedNumber},</if>
+            <if test="startTime != null">#{startTime},</if>
+            <if test="endTime != null">#{endTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateOccupancyRelationship" parameterType="OccupancyRelationship">
+        update occupancyRelationship
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="stuId != null and stuId != ''">stu_id = #{stuId},</if>
+            <if test="dormitoryId != null">dormitory_id = #{dormitoryId},</if>
+            <if test="bedNumber != null">bed_number = #{bedNumber},</if>
+            <if test="startTime != null">start_time = #{startTime},</if>
+            <if test="endTime != null">end_time = #{endTime},</if>
+        </trim>
+        where ocp_id = #{ocpId}
+    </update>
+
+    <delete id="deleteOccupancyRelationshipByOcpId" parameterType="String">
+        delete from occupancyRelationship where ocp_id = #{ocpId}
+    </delete>
+
+    <delete id="deleteOccupancyRelationshipByOcpIds" parameterType="String">
+        delete from occupancyRelationship where ocp_id in 
+        <foreach item="ocpId" collection="array" open="(" separator="," close=")">
+            #{ocpId}
+        </foreach>
+    </delete>
+
+</mapper>

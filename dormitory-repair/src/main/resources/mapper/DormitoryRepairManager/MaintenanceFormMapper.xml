@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.dormitoryRepair.maintenanceForm.mapper.MaintenanceFormMapper">
+    
+    <resultMap type="MaintenanceForm" id="MaintenanceFormResult">
+        <result property="id"    column="id"    />
+        <result property="dorId"    column="dorId"    />
+        <result property="repairIssueDescription"    column="repairIssueDescription"    />
+        <result property="linkmanName"    column="linkmanName"    />
+        <result property="phoneNumber"    column="phoneNumber"    />
+        <result property="status"    column="status"    />
+        <result property="handleMan"    column="handleMan"    />
+    </resultMap>
+
+    <sql id="selectMaintenanceFormVo">
+        select id, dorId, repairIssueDescription, linkmanName, phoneNumber, status, handleMan from maintenanceForm
+    </sql>
+
+    <select id="selectMaintenanceFormList" parameterType="MaintenanceForm" resultMap="MaintenanceFormResult">
+        <include refid="selectMaintenanceFormVo"/>
+        <where>  
+            <if test="dorId != null  and dorId != ''"> and dorId = #{dorId}</if>
+            <if test="repairIssueDescription != null  and repairIssueDescription != ''"> and repairIssueDescription = #{repairIssueDescription}</if>
+            <if test="linkmanName != null  and linkmanName != ''"> and linkmanName like concat('%', #{linkmanName}, '%')</if>
+            <if test="phoneNumber != null  and phoneNumber != ''"> and phoneNumber = #{phoneNumber}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="handleMan != null  and handleMan != ''"> and handleMan = #{handleMan}</if>
+        </where>
+    </select>
+    
+    <select id="selectMaintenanceFormById" parameterType="Long" resultMap="MaintenanceFormResult">
+        <include refid="selectMaintenanceFormVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMaintenanceForm" parameterType="MaintenanceForm" useGeneratedKeys="true" keyProperty="id">
+        insert into maintenanceForm
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="dorId != null">dorId,</if>
+            <if test="repairIssueDescription != null">repairIssueDescription,</if>
+            <if test="linkmanName != null">linkmanName,</if>
+            <if test="phoneNumber != null">phoneNumber,</if>
+            <if test="status != null">status,</if>
+            <if test="handleMan != null">handleMan,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="dorId != null">#{dorId},</if>
+            <if test="repairIssueDescription != null">#{repairIssueDescription},</if>
+            <if test="linkmanName != null">#{linkmanName},</if>
+            <if test="phoneNumber != null">#{phoneNumber},</if>
+            <if test="status != null">#{status},</if>
+            <if test="handleMan != null">#{handleMan},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMaintenanceForm" parameterType="MaintenanceForm">
+        update maintenanceForm
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="dorId != null">dorId = #{dorId},</if>
+            <if test="repairIssueDescription != null">repairIssueDescription = #{repairIssueDescription},</if>
+            <if test="linkmanName != null">linkmanName = #{linkmanName},</if>
+            <if test="phoneNumber != null">phoneNumber = #{phoneNumber},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="handleMan != null">handleMan = #{handleMan},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMaintenanceFormById" parameterType="Long">
+        delete from maintenanceForm where id = #{id}
+    </delete>
+
+    <delete id="deleteMaintenanceFormByIds" parameterType="String">
+        delete from maintenanceForm where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

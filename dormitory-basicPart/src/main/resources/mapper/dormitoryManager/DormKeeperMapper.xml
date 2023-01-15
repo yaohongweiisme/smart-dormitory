@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.dormitory.keeper.mapper.DormKeeperMapper">
+    
+    <resultMap type="DormKeeper" id="DormKeeperResult">
+        <result property="dkId"    column="dk_id"    />
+        <result property="name"    column="name"    />
+        <result property="managerDor"    column="manager_dor"    />
+        <result property="location"    column="location"    />
+        <result property="phoneNumber"    column="phoneNumber"    />
+    </resultMap>
+
+    <sql id="selectDormKeeperVo">
+        select dk_id, name, manager_dor, location, phoneNumber from dorm_keeper
+    </sql>
+
+    <select id="selectDormKeeperList" parameterType="DormKeeper" resultMap="DormKeeperResult">
+        <include refid="selectDormKeeperVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="managerDor != null  and managerDor != ''"> and manager_dor = #{managerDor}</if>
+            <if test="location != null  and location != ''"> and location = #{location}</if>
+            <if test="phoneNumber != null and phoneNumber != ''"> and phoneNumber = #{phoneNumber}</if>
+        </where>
+    </select>
+    
+    <select id="selectDormKeeperByDkId" parameterType="Long" resultMap="DormKeeperResult">
+        <include refid="selectDormKeeperVo"/>
+        where dk_id = #{dkId}
+    </select>
+        
+    <insert id="insertDormKeeper" parameterType="DormKeeper">
+        insert into dorm_keeper
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="dkId != null">dk_id,</if>
+            <if test="name != null">name,</if>
+            <if test="managerDor != null">manager_dor,</if>
+            <if test="location != null">location,</if>
+            <if test="phoneNumber != null">phoneNumber,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="dkId != null">#{dkId},</if>
+            <if test="name != null">#{name},</if>
+            <if test="managerDor != null">#{managerDor},</if>
+            <if test="location != null">#{location},</if>
+            <if test="phoneNumber != null">#{phoneNumber},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDormKeeper" parameterType="DormKeeper">
+        update dorm_keeper
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="managerDor != null">manager_dor = #{managerDor},</if>
+            <if test="location != null">location = #{location},</if>
+            <if test="phoneNumber != null">phoneNumber = #{phoneNumber},</if>
+        </trim>
+        where dk_id = #{dkId}
+    </update>
+
+    <delete id="deleteDormKeeperByDkId" parameterType="Long">
+        delete from dorm_keeper where dk_id = #{dkId}
+    </delete>
+
+    <delete id="deleteDormKeeperByDkIds" parameterType="String">
+        delete from dorm_keeper where dk_id in 
+        <foreach item="dkId" collection="array" open="(" separator="," close=")">
+            #{dkId}
+        </foreach>
+    </delete>
+
+</mapper>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.dormitoryRepair.buildingStaff.mapper.BuildingStaffMapper">
+
+    <resultMap type="BuildingStaff" id="BuildingStaffResult">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="phoneNumber" column="phoneNumber"/>
+    </resultMap>
+
+    <sql id="selectBuildingStaffVo">
+        select id, name, phoneNumber
+        from buildingStaff
+    </sql>
+
+    <select id="selectBuildingStaffList" parameterType="BuildingStaff" resultMap="BuildingStaffResult">
+        <include refid="selectBuildingStaffVo"/>
+        <where>
+            <if test="name != null  and name != ''">and name like concat('%', #{name}, '%')</if>
+            <if test="phoneNumber != null  and  phoneNumber != ''">and phoneNumber = #{phoneNumber}</if>
+        </where>
+    </select>
+
+    <select id="selectBuildingStaffById" parameterType="Long" resultMap="BuildingStaffResult">
+        <include refid="selectBuildingStaffVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertBuildingStaff" parameterType="BuildingStaff" useGeneratedKeys="true" keyProperty="id">
+        insert into buildingStaff
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="phoneNumber != null">phoneNumber,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="phoneNumber != null">#{phoneNumber},</if>
+        </trim>
+    </insert>
+
+    <update id="updateBuildingStaff" parameterType="BuildingStaff">
+        update buildingStaff
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="phoneNumber != null">phoneNumber = #{phoneNumber},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBuildingStaffById" parameterType="Long">
+        delete
+        from buildingStaff
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteBuildingStaffByIds" parameterType="String">
+        delete from buildingStaff where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.payment.projectManager.mapper.PaymentProjectMapper">
+    
+    <resultMap type="PaymentProject" id="PaymentProjectResult">
+        <result property="projectId"    column="project_id"    />
+        <result property="projectTittle"    column="project_tittle"    />
+        <result property="projectObject"    column="project_object"    />
+        <result property="principal"    column="principal"    />
+        <result property="projectProgress"    column="project_progress"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectPaymentProjectVo">
+        select project_id, project_tittle, project_object, principal, project_progress, create_time from payment_project
+    </sql>
+
+    <select id="selectPaymentProjectList" parameterType="PaymentProject" resultMap="PaymentProjectResult">
+        <include refid="selectPaymentProjectVo"/>
+        <where>  
+            <if test="projectTittle != null  and projectTittle != ''"> and project_tittle = #{projectTittle}</if>
+            <if test="projectObject != null  and projectObject != ''"> and project_object = #{projectObject}</if>
+            <if test="principal != null  and principal != ''"> and principal = #{principal}</if>
+            <if test="projectProgress != null "> and project_progress = #{projectProgress}</if>
+        </where>
+    </select>
+    
+    <select id="selectPaymentProjectByProjectId" parameterType="Long" resultMap="PaymentProjectResult">
+        <include refid="selectPaymentProjectVo"/>
+        where project_id = #{projectId}
+    </select>
+        
+    <insert id="insertPaymentProject" parameterType="PaymentProject">
+        insert into payment_project
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="projectId != null">project_id,</if>
+            <if test="projectTittle != null and projectTittle != ''">project_tittle,</if>
+            <if test="projectObject != null">project_object,</if>
+            <if test="principal != null">principal,</if>
+            <if test="projectProgress != null">project_progress,</if>
+            <if test="createTime != null">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="projectId != null">#{projectId},</if>
+            <if test="projectTittle != null and projectTittle != ''">#{projectTittle},</if>
+            <if test="projectObject != null">#{projectObject},</if>
+            <if test="principal != null">#{principal},</if>
+            <if test="projectProgress != null">#{projectProgress},</if>
+            <if test="createTime != null">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePaymentProject" parameterType="PaymentProject">
+        update payment_project
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="projectTittle != null and projectTittle != ''">project_tittle = #{projectTittle},</if>
+            <if test="projectObject != null">project_object = #{projectObject},</if>
+            <if test="principal != null">principal = #{principal},</if>
+            <if test="projectProgress != null">project_progress = #{projectProgress},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where project_id = #{projectId}
+    </update>
+
+    <delete id="deletePaymentProjectByProjectId" parameterType="Long">
+        delete from payment_project where project_id = #{projectId}
+    </delete>
+
+    <delete id="deletePaymentProjectByProjectIds" parameterType="String">
+        delete from payment_project where project_id in 
+        <foreach item="projectId" collection="array" open="(" separator="," close=")">
+            #{projectId}
+        </foreach>
+    </delete>
+
+</mapper>
