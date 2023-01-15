@@ -43,12 +43,15 @@ public class OccupancyRelationshipController extends BaseController {
     //输入宿舍id得到可选床号
     @ResponseBody
     @GetMapping("/selectAvailableBedNumbers" )
-    public List<Long> getBedNumberThatNotSelected(String dorId) {
+    public Map<String, Object> getBedNumberThatNotSelected(String dorId) {
 
         List<Long> bedNumbers = dormitoryService.selectAvailableBedNumbers(dorId);
 
-        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        return bedNumbers;
+        Map<String, Object> stringObjectHashMap = new HashMap<>();
+
+        stringObjectHashMap.put("bedNumbers",bedNumbers);
+        stringObjectHashMap.put("code",bedNumbers==null?500:200);
+        return stringObjectHashMap;
     }
 
     @RequiresPermissions("dormitoryManager:occupancyRelationship:view" )

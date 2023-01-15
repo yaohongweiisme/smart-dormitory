@@ -86,15 +86,15 @@
             },
             success: function (data) {
                 console.log("ajax请求成功，空余床号为:", data);
-                if (data.code=500){
+                if (data.code==500){
                     console.log("宿舍号填写错误")
                     $("#bedNumber").empty();
                     $("#bedNumber").append("<option value=''>宿舍号填写错误，无可选床位号</option>");
                 }else {
                     $("#bedNumber").empty();
                     $("#bedNumber").append("<option value=''>请选择空闲床位号</option>");
-                    for (let i = 0; i < data.length; i++) {
-                        $("#bedNumber").append("<option value='" + data[i] + "'>" + data[i] + "</option>");
+                    for (let i = 0; i < data.bedNumbers.length; i++) {
+                        $("#bedNumber").append("<option value='" + data.bedNumbers[i] + "'>" + data.bedNumbers[i] + "</option>");
                     }
                 }
 
