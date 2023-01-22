@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="让可选床位号显示正常">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="新增不受git控制的文件，比如target">
+      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/controller/BuildingInfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/domain/BuildingInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/mapper/BuildingInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/service/IBuildingInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/service/impl/BuildingInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/mapper/dormitoryManager/BuildingInfoMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/buildingInfo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,31 +57,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/code/java/RuoYi",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.3831991",
-    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
-    "spring.configuration.checksum": "9fa499452d91e7daa3e25d6148effc54",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/code/java/RuoYi&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3831991&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;9fa499452d91e7daa3e25d6148effc54&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\code\java\RuoYi\dormitory-repair\src" />
@@ -117,7 +126,8 @@
       <workItem from="1673497102075" duration="4266000" />
       <workItem from="1673747801500" duration="2648000" />
       <workItem from="1673764584484" duration="8057000" />
-      <workItem from="1673782547143" duration="3101000" />
+      <workItem from="1673782547143" duration="4258000" />
+      <workItem from="1674096425018" duration="3076000" />
     </task>
     <task id="LOCAL-00001" summary="把mybatis改用mybaits plus,创建和编写了部分模块代码，分别是宿舍信息管理、宿舍缴费、宿舍报修">
       <created>1673774535630</created>
@@ -140,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673785478205</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="新增不受git控制的文件，比如target">
+      <created>1673785714979</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673785714979</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +180,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="把mybatis改用mybaits plus,创建和编写了部分模块代码，分别是宿舍信息管理、宿舍缴费、宿舍报修" />
     <MESSAGE value="让可选床位号显示正常" />
-    <option name="LAST_COMMIT_MESSAGE" value="让可选床位号显示正常" />
+    <MESSAGE value="新增不受git控制的文件，比如target" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增不受git控制的文件，比如target" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

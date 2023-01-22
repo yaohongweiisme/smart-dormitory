@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增宿舍楼信息')" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-buildingInfo-add">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">宿舍楼名称：</label>
+                <div class="col-sm-8">
+                    <input name="buildingName" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">楼层数：</label>
+                <div class="col-sm-8">
+                    <input name="floorNumber" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">可住宿舍数：</label>
+                <div class="col-sm-8">
+                    <input name="capacity" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">实住宿舍数：</label>
+                <div class="col-sm-8">
+                    <input name="permanentResidents" class="form-control" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var prefix = ctx + "dormitoryManager/buildingInfo"
+        $("#form-buildingInfo-add").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/add", $('#form-buildingInfo-add').serialize());
+            }
+        }
+    </script>
+</body>
+</html>

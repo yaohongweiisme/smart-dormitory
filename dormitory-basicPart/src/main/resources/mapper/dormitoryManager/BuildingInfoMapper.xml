@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.dormitory.buildingInfo.mapper.BuildingInfoMapper">
+    
+    <resultMap type="BuildingInfo" id="BuildingInfoResult">
+        <result property="buildingId"    column="buildingId"    />
+        <result property="buildingName"    column="buildingName"    />
+        <result property="floorNumber"    column="floorNumber"    />
+        <result property="capacity"    column="capacity"    />
+        <result property="permanentResidents"    column="permanentResidents"    />
+    </resultMap>
+
+    <sql id="selectBuildingInfoVo">
+        select buildingId, buildingName, floorNumber, capacity, permanentResidents from buildingInfo
+    </sql>
+
+    <select id="selectBuildingInfoList" parameterType="BuildingInfo" resultMap="BuildingInfoResult">
+        <include refid="selectBuildingInfoVo"/>
+        <where>  
+            <if test="buildingName != null  and buildingName != ''"> and buildingName like concat('%', #{buildingName}, '%')</if>
+            <if test="floorNumber != null "> and floorNumber = #{floorNumber}</if>
+            <if test="capacity != null "> and capacity = #{capacity}</if>
+            <if test="permanentResidents != null "> and permanentResidents = #{permanentResidents}</if>
+        </where>
+    </select>
+    
+    <select id="selectBuildingInfoByBuildingId" parameterType="String" resultMap="BuildingInfoResult">
+        <include refid="selectBuildingInfoVo"/>
+        where buildingId = #{buildingId}
+    </select>
+        
+    <insert id="insertBuildingInfo" parameterType="BuildingInfo">
+        insert into buildingInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="buildingId != null">buildingId,</if>
+            <if test="buildingName != null">buildingName,</if>
+            <if test="floorNumber != null">floorNumber,</if>
+            <if test="capacity != null">capacity,</if>
+            <if test="permanentResidents != null">permanentResidents,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="buildingId != null">#{buildingId},</if>
+            <if test="buildingName != null">#{buildingName},</if>
+            <if test="floorNumber != null">#{floorNumber},</if>
+            <if test="capacity != null">#{capacity},</if>
+            <if test="permanentResidents != null">#{permanentResidents},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBuildingInfo" parameterType="BuildingInfo">
+        update buildingInfo
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="buildingName != null">buildingName = #{buildingName},</if>
+            <if test="floorNumber != null">floorNumber = #{floorNumber},</if>
+            <if test="capacity != null">capacity = #{capacity},</if>
+            <if test="permanentResidents != null">permanentResidents = #{permanentResidents},</if>
+        </trim>
+        where buildingId = #{buildingId}
+    </update>
+
+    <delete id="deleteBuildingInfoByBuildingId" parameterType="String">
+        delete from buildingInfo where buildingId = #{buildingId}
+    </delete>
+
+    <delete id="deleteBuildingInfoByBuildingIds" parameterType="String">
+        delete from buildingInfo where buildingId in 
+        <foreach item="buildingId" collection="array" open="(" separator="," close=")">
+            #{buildingId}
+        </foreach>
+    </delete>
+
+</mapper>
