@@ -4,17 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="新增不受git控制的文件，比如target">
-      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/controller/BuildingInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/domain/BuildingInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/mapper/BuildingInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/service/IBuildingInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/service/impl/BuildingInfoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/mapper/dormitoryManager/BuildingInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/buildingInfo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/edit.html" afterDir="false" />
+    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="新增宿舍楼管理子模块">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/keeper/controller/DormKeeperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/keeper/controller/DormKeeperController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/domain/Dormitory.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/domain/Dormitory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/mapper/dormitoryManager/DormitoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/mapper/dormitoryManager/DormitoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/keeper/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/keeper/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/stuDormitory/stuDormitory.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/stuDormitory/stuDormitory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/keeper/controller/DormKeeperController.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/keeper/controller/DormKeeperController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/keeper/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/keeper/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-payment/src/main/java/com/ruoyi/payment/projectManager/controller/PaymentProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-payment/src/main/java/com/ruoyi/payment/projectManager/controller/PaymentProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-payment/target/classes/com/ruoyi/payment/projectManager/controller/PaymentProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-payment/target/classes/com/ruoyi/payment/projectManager/controller/PaymentProjectController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +133,8 @@
       <workItem from="1673747801500" duration="2648000" />
       <workItem from="1673764584484" duration="8057000" />
       <workItem from="1673782547143" duration="4258000" />
-      <workItem from="1674096425018" duration="3076000" />
+      <workItem from="1674096425018" duration="5271000" />
+      <workItem from="1674657042769" duration="3586000" />
     </task>
     <task id="LOCAL-00001" summary="把mybatis改用mybaits plus,创建和编写了部分模块代码，分别是宿舍信息管理、宿舍缴费、宿舍报修">
       <created>1673774535630</created>
@@ -157,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673785714979</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="新增宿舍楼管理子模块">
+      <created>1674397394804</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1674397394804</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +195,8 @@
     <MESSAGE value="把mybatis改用mybaits plus,创建和编写了部分模块代码，分别是宿舍信息管理、宿舍缴费、宿舍报修" />
     <MESSAGE value="让可选床位号显示正常" />
     <MESSAGE value="新增不受git控制的文件，比如target" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增不受git控制的文件，比如target" />
+    <MESSAGE value="新增宿舍楼管理子模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增宿舍楼管理子模块" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

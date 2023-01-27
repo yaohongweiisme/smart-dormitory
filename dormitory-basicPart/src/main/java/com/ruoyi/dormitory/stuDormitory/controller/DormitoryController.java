@@ -51,6 +51,7 @@ public class DormitoryController extends BaseController
     {
         startPage();
         List<Dormitory> list = dormitoryService.selectDormitoryList(dormitory);
+        System.out.println("list是多少:"+list.toString());
         return getDataTable(list);
     }
 

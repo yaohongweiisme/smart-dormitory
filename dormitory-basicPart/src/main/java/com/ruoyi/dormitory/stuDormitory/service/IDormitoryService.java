@@ -61,8 +61,6 @@ public interface IDormitoryService
      */
     public int deleteDormitoryByDorId(String dorId);
 
-    List<String> getDormitoryBuilding(List<Dormitory> dormitoryList);
-
     void addPresentNumber(OccupancyRelationship occupancyRelationship);
 
     List<Long> selectAvailableBedNumbers(String dorId);

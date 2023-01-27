@@ -19,7 +19,14 @@ public class Dormitory extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 宿舍编号 */
+    @TableField("dor_id")
+    @Excel(name = "宿舍编号")
     private String dorId;
+
+    /** 所处宿舍楼Id */
+    @TableField("building_id")
+    @Excel(name = "宿舍楼id")
+    private String buildingId;
 
     /** 宿舍长学生id */
     @TableField("stu_id")
@@ -30,6 +37,14 @@ public class Dormitory extends BaseEntity
     @TableField("location")
     @Excel(name = "宿舍地址", readConverterExp = "例=如第几宿舍楼")
     private String location;
+
+    public String getBuildingId() {
+        return buildingId;
+    }
+
+    public void setBuildingId(String buildingId) {
+        this.buildingId = buildingId;
+    }
 
     /** 宿舍可容纳人数 */
     @TableField("capacity")
@@ -103,13 +118,14 @@ public class Dormitory extends BaseEntity
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("dorId", getDorId())
-            .append("stuId", getStuId())
-            .append("location", getLocation())
-            .append("capacity", getCapacity())
-            .append("presentNumber", getPresentNumber())
-            .append("status", getStatus())
-            .toString();
+        return "Dormitory{" +
+                "dorId='" + dorId + '\'' +
+                ", buildingId='" + buildingId + '\'' +
+                ", stuId='" + stuId + '\'' +
+                ", location='" + location + '\'' +
+                ", capacity=" + capacity +
+                ", presentNumber=" + presentNumber +
+                ", status=" + status +
+                '}';
     }
 }

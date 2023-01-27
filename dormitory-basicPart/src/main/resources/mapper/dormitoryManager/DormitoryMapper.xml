@@ -6,6 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <resultMap type="Dormitory" id="DormitoryResult">
         <result property="dorId"    column="dor_id"    />
+        <result property="buildingId"    column="building_id"    />
         <result property="stuId"    column="stu_id"    />
         <result property="location"    column="location"    />
         <result property="capacity"    column="capacity"    />
@@ -14,12 +15,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectDormitoryVo">
-        select dor_id, stu_id, location, capacity, present_number, status from dormitory
+        select dor_id, building_id,stu_id, location, capacity, present_number, status from dormitory
     </sql>
 
     <select id="selectDormitoryList" parameterType="Dormitory" resultMap="DormitoryResult">
         <include refid="selectDormitoryVo"/>
-        <where>  
+        <where>
+            <if test="buildingId != null  and buildingId != ''"> and building_id = #{buildingId}</if>
             <if test="stuId != null  and stuId != ''"> and stu_id = #{stuId}</if>
             <if test="location != null  and location != ''"> and location = #{location}</if>
             <if test="capacity != null "> and capacity = #{capacity}</if>
@@ -37,6 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into dormitory
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="dorId != null">dor_id,</if>
+            <if test="buildingId != null">building_id,</if>
             <if test="stuId != null">stu_id,</if>
             <if test="location != null and location != ''">location,</if>
             <if test="capacity != null">capacity,</if>
@@ -45,6 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="dorId != null">#{dorId},</if>
+            <if test="buildingId != null">#{buildingId},</if>
             <if test="stuId != null">#{stuId},</if>
             <if test="location != null and location != ''">#{location},</if>
             <if test="capacity != null">#{capacity},</if>
@@ -56,6 +60,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="updateDormitory" parameterType="Dormitory">
         update dormitory
         <trim prefix="SET" suffixOverrides=",">
+            <if test="buildingId != null">building_Id = #{buildingId},</if>
             <if test="stuId != null">stu_id = #{stuId},</if>
             <if test="location != null and location != ''">location = #{location},</if>
             <if test="capacity != null">capacity = #{capacity},</if>

@@ -3,6 +3,8 @@ package com.ruoyi.payment.projectManager.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.ruoyi.dormitory.buildingInfo.domain.BuildingInfo;
+import com.ruoyi.dormitory.buildingInfo.service.IBuildingInfoService;
 import com.ruoyi.dormitory.stuDormitory.domain.Dormitory;
 import com.ruoyi.dormitory.stuDormitory.service.IDormitoryService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -41,6 +43,8 @@ public class PaymentProjectController extends BaseController
     @Autowired
     private IDormitoryService dormitoryService;
 
+    @Autowired
+    private IBuildingInfoService buildingInfoService;
     @RequiresPermissions("dormitory-payment:projectManager:view")
     @GetMapping()
     public String projectManager()
@@ -81,9 +85,8 @@ public class PaymentProjectController extends BaseController
     @GetMapping("/add")
     public String add(ModelMap mmap)
     {
-        List<Dormitory> dormitoryList = dormitoryService.selectDormitoryList(null);
-        List<String> projectObject;
-        projectObject= dormitoryService.getDormitoryBuilding(dormitoryList);
+        List<BuildingInfo> projectObject;
+        projectObject= buildingInfoService.selectBuildingInfoList(null);
         mmap.put("projectObject",projectObject);
         return prefix + "/add";
     }

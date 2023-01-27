@@ -103,14 +103,6 @@ public class DormitoryServiceImpl implements IDormitoryService
         return dormitoryMapper.deleteDormitoryByDorId(dorId);
     }
 
-    @Override
-    public List<String> getDormitoryBuilding(List<Dormitory> dormitoryList) {
-        List<String> list = dormitoryList.stream().map(item -> {
-            String[] split = item.getLocation().split("栋" );
-            return split[0] + "栋";
-        }).collect(Collectors.toList());
-        return list;
-    }
 
     @Override
     public void addPresentNumber(OccupancyRelationship occupancyRelationship) {

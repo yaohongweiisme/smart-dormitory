@@ -16,7 +16,7 @@
                 <label class="col-sm-3 control-label">管理宿舍楼：</label>
                 <div class="col-sm-8">
                     <select class="form-control" id="DorBuilding" name="managerDor">
-                        <option th:each="DorBuilding:${DorBuilding}" th:value="${DorBuilding}" th:text="${DorBuilding}"></option>
+                        <option th:each="DorBuilding:${DorBuilding}" th:value="${DorBuilding.buildingId}" th:text="${DorBuilding.buildingName}"></option>
                     </select>
                 </div>
             </div>

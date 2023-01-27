@@ -2,6 +2,8 @@ package com.ruoyi.dormitory.keeper.controller;
 
 import java.util.List;
 
+import com.ruoyi.dormitory.buildingInfo.domain.BuildingInfo;
+import com.ruoyi.dormitory.buildingInfo.service.IBuildingInfoService;
 import com.ruoyi.dormitory.stuDormitory.domain.Dormitory;
 import com.ruoyi.dormitory.stuDormitory.service.IDormitoryService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -38,7 +40,7 @@ public class DormKeeperController extends BaseController
     private IDormKeeperService dormKeeperService;
 
     @Autowired
-    private IDormitoryService dormitoryService;
+    private IBuildingInfoService buildingInfoService;
 
     @RequiresPermissions("dormitoryManager:keeper:view")
     @GetMapping()
@@ -83,10 +85,9 @@ public class DormKeeperController extends BaseController
     @GetMapping("/add")
     public String add(ModelMap mmap)
     {
-        List<Dormitory> dormitoryList = dormitoryService.selectDormitoryList(null);
-        List<String> DorBuilding;
-        DorBuilding= dormitoryService.getDormitoryBuilding(dormitoryList);
-        mmap.put("DorBuilding",DorBuilding);
+        List<BuildingInfo> dorBuilding;
+        dorBuilding =buildingInfoService.selectBuildingInfoList(null);
+        mmap.put("DorBuilding",dorBuilding);
         return prefix + "/add";
     }
 
