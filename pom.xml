@@ -224,6 +224,7 @@
         <module>dormitory-basicPart</module>
         <module>dormitory-payment</module>
         <module>dormitory-repair</module>
+        <module>dormitory-performance</module>
     </modules>
     <packaging>pom</packaging>
 

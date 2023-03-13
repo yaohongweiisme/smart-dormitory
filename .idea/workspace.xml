@@ -4,28 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="新增宿舍楼管理子模块">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/keeper/controller/DormKeeperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/keeper/controller/DormKeeperController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/domain/Dormitory.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/domain/Dormitory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/mapper/dormitoryManager/DormitoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/mapper/dormitoryManager/DormitoryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/keeper/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/keeper/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/stuDormitory/stuDormitory.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/stuDormitory/stuDormitory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/keeper/controller/DormKeeperController.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/keeper/controller/DormKeeperController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/keeper/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/keeper/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-payment/src/main/java/com/ruoyi/payment/projectManager/controller/PaymentProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-payment/src/main/java/com/ruoyi/payment/projectManager/controller/PaymentProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-payment/target/classes/com/ruoyi/payment/projectManager/controller/PaymentProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-payment/target/classes/com/ruoyi/payment/projectManager/controller/PaymentProjectController.class" afterDir="false" />
-    </list>
+    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="新增宿舍表宿舍楼字段" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,7 +30,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="C:\BuildTools\apache-maven-3.8.6\rep" />
-        <option name="mavenHome" value="C:/BuildTools/apache-maven-3.8.6" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../BuildTools/apache-maven-3.8.6" />
         <option name="useMavenConfig" value="true" />
         <option name="userSettingsFile" value="C:\BuildTools\apache-maven-3.8.6\conf\settings.xml" />
       </MavenGeneralSettings>
@@ -74,7 +60,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/code/java/RuoYi&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/ProjectHome/java/RuoYi&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -83,8 +69,8 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.3831991&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;9fa499452d91e7daa3e25d6148effc54&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;761e9139ee3bf5951683977c8eb21cd2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -135,6 +121,18 @@
       <workItem from="1673782547143" duration="4258000" />
       <workItem from="1674096425018" duration="5271000" />
       <workItem from="1674657042769" duration="3586000" />
+      <workItem from="1674787848387" duration="261000" />
+      <workItem from="1674788228690" duration="726000" />
+      <workItem from="1675300962281" duration="156000" />
+      <workItem from="1675680208103" duration="305000" />
+      <workItem from="1675682030176" duration="81000" />
+      <workItem from="1675907496168" duration="1371000" />
+      <workItem from="1676251273263" duration="1727000" />
+      <workItem from="1676338330446" duration="1924000" />
+      <workItem from="1678535771928" duration="152000" />
+      <workItem from="1678537025985" duration="5760000" />
+      <workItem from="1678693936109" duration="1018000" />
+      <workItem from="1678694985392" duration="383000" />
     </task>
     <task id="LOCAL-00001" summary="把mybatis改用mybaits plus,创建和编写了部分模块代码，分别是宿舍信息管理、宿舍缴费、宿舍报修">
       <created>1673774535630</created>
@@ -171,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674397394804</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="新增宿舍表宿舍楼字段">
+      <created>1674787967485</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674787967485</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +201,8 @@
     <MESSAGE value="让可选床位号显示正常" />
     <MESSAGE value="新增不受git控制的文件，比如target" />
     <MESSAGE value="新增宿舍楼管理子模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增宿舍楼管理子模块" />
+    <MESSAGE value="新增宿舍表宿舍楼字段" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增宿舍表宿舍楼字段" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.performance.dailyScoreChange.mapper.DorDailyScoreChangeMapper">
+    
+    <resultMap type="DorDailyScoreChange" id="DorDailyScoreChangeResult">
+        <result property="id"    column="id"    />
+        <result property="dorId"    column="dor_id"    />
+        <result property="scoreChangeValue"    column="score_change_value"    />
+        <result property="kind"    column="kind"    />
+    </resultMap>
+
+    <sql id="selectDorDailyScoreChangeVo">
+        select id, dor_id, score_change_value, kind from dor_daily_score_change
+    </sql>
+
+    <select id="selectDorDailyScoreChangeList" parameterType="DorDailyScoreChange" resultMap="DorDailyScoreChangeResult">
+        <include refid="selectDorDailyScoreChangeVo"/>
+        <where>  
+            <if test="dorId != null  and dorId != ''"> and dor_id = #{dorId}</if>
+            <if test="scoreChangeValue != null "> and score_change_value = #{scoreChangeValue}</if>
+            <if test="kind != null "> and kind = #{kind}</if>
+        </where>
+    </select>
+    
+    <select id="selectDorDailyScoreChangeById" parameterType="Long" resultMap="DorDailyScoreChangeResult">
+        <include refid="selectDorDailyScoreChangeVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertDorDailyScoreChange" parameterType="DorDailyScoreChange" useGeneratedKeys="true" keyProperty="id">
+        insert into dor_daily_score_change
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="dorId != null">dor_id,</if>
+            <if test="scoreChangeValue != null">score_change_value,</if>
+            <if test="kind != null">kind,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="dorId != null">#{dorId},</if>
+            <if test="scoreChangeValue != null">#{scoreChangeValue},</if>
+            <if test="kind != null">#{kind},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDorDailyScoreChange" parameterType="DorDailyScoreChange">
+        update dor_daily_score_change
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="dorId != null">dor_id = #{dorId},</if>
+            <if test="scoreChangeValue != null">score_change_value = #{scoreChangeValue},</if>
+            <if test="kind != null">kind = #{kind},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteDorDailyScoreChangeById" parameterType="Long">
+        delete from dor_daily_score_change where id = #{id}
+    </delete>
+
+    <delete id="deleteDorDailyScoreChangeByIds" parameterType="String">
+        delete from dor_daily_score_change where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

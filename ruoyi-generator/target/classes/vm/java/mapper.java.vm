@@ -1,5 +1,6 @@
 package ${packageName}.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import java.util.List;
 import ${packageName}.domain.${ClassName};
 #if($table.sub)

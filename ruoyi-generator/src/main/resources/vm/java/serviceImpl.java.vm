@@ -1,5 +1,6 @@
 package ${packageName}.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import java.util.List;
 #if($table.tree)
 import java.util.ArrayList;

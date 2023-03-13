@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.performance.totalScore.mapper.DorTotalScoreMapper">
+    
+    <resultMap type="DorTotalScore" id="DorTotalScoreResult">
+        <result property="id"    column="id"    />
+        <result property="buildingId"    column="building_Id"    />
+        <result property="dorId"    column="dor_id"    />
+        <result property="totalScore"    column="total_score"    />
+        <result property="buildTime"    column="build_time"    />
+        <result property="lastUpdateTime"    column="last_update_time"    />
+    </resultMap>
+
+    <sql id="selectDorTotalScoreVo">
+        select id, building_Id, dor_id, total_score, build_time, last_update_time from dor_total_score
+    </sql>
+
+    <select id="selectDorTotalScoreList" parameterType="DorTotalScore" resultMap="DorTotalScoreResult">
+        <include refid="selectDorTotalScoreVo"/>
+        <where>  
+            <if test="buildingId != null  and buildingId != ''"> and building_Id = #{buildingId}</if>
+            <if test="dorId != null  and dorId != ''"> and dor_id = #{dorId}</if>
+            <if test="totalScore != null "> and total_score = #{totalScore}</if>
+            <if test="buildTime != null "> and build_time = #{buildTime}</if>
+            <if test="lastUpdateTime != null "> and last_update_time = #{lastUpdateTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectDorTotalScoreById" parameterType="Long" resultMap="DorTotalScoreResult">
+        <include refid="selectDorTotalScoreVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertDorTotalScore" parameterType="DorTotalScore" useGeneratedKeys="true" keyProperty="id">
+        insert into dor_total_score
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="buildingId != null">building_Id,</if>
+            <if test="dorId != null">dor_id,</if>
+            <if test="totalScore != null">total_score,</if>
+            <if test="buildTime != null">build_time,</if>
+            <if test="lastUpdateTime != null">last_update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="buildingId != null">#{buildingId},</if>
+            <if test="dorId != null">#{dorId},</if>
+            <if test="totalScore != null">#{totalScore},</if>
+            <if test="buildTime != null">#{buildTime},</if>
+            <if test="lastUpdateTime != null">#{lastUpdateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDorTotalScore" parameterType="DorTotalScore">
+        update dor_total_score
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="buildingId != null">building_Id = #{buildingId},</if>
+            <if test="dorId != null">dor_id = #{dorId},</if>
+            <if test="totalScore != null">total_score = #{totalScore},</if>
+            <if test="buildTime != null">build_time = #{buildTime},</if>
+            <if test="lastUpdateTime != null">last_update_time = #{lastUpdateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteDorTotalScoreById" parameterType="Long">
+        delete from dor_total_score where id = #{id}
+    </delete>
+
+    <delete id="deleteDorTotalScoreByIds" parameterType="String">
+        delete from dor_total_score where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
