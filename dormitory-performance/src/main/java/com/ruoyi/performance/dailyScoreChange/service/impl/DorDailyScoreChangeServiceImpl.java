@@ -1,20 +1,19 @@
 package com.ruoyi.performance.dailyScoreChange.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ruoyi.common.core.text.Convert;
-import com.ruoyi.performance.dailyScoreChange.domain.DorDailyScoreChange;
-import com.ruoyi.performance.dailyScoreChange.mapper.DorDailyScoreChangeMapper;
-import com.ruoyi.performance.dailyScoreChange.service.IDorDailyScoreChangeService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import com.ruoyi.performance.dailyScoreChange.mapper.DorDailyScoreChangeMapper;
+import com.ruoyi.performance.dailyScoreChange.domain.DorDailyScoreChange;
+import com.ruoyi.performance.dailyScoreChange.service.IDorDailyScoreChangeService;
+import com.ruoyi.common.core.text.Convert;
 
 /**
  * 宿舍每日分数浮动Service业务层处理
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-20
  */
 @Service
 public class DorDailyScoreChangeServiceImpl extends ServiceImpl<DorDailyScoreChangeMapper,DorDailyScoreChange> implements IDorDailyScoreChangeService

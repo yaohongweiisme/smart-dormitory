@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="新增宿舍表宿舍楼字段" />
+    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="新增宿舍表宿舍楼字段">
+      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/static/img/dormitory.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/controller/DorDailyScoreChangeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/controller/DorDailyScoreChangeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/domain/DorDailyScoreChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/domain/DorDailyScoreChange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/mapper/DorDailyScoreChangeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/mapper/DorDailyScoreChangeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/IDorDailyScoreChangeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/IDorDailyScoreChangeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/impl/DorDailyScoreChangeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/impl/DorDailyScoreChangeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/mapper/dormitoryPerformance/DorDailyScoreChangeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/mapper/dormitoryPerformance/DorDailyScoreChangeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/dailyScoreChange.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/dailyScoreChange.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/static/css/login.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/static/css/login.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/static/css/login.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/static/css/login.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/login.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,6 +154,12 @@
       <workItem from="1678537025985" duration="5760000" />
       <workItem from="1678693936109" duration="1018000" />
       <workItem from="1678694985392" duration="383000" />
+      <workItem from="1679040913059" duration="2255000" />
+      <workItem from="1679122267706" duration="11000" />
+      <workItem from="1679280366925" duration="2940000" />
+      <workItem from="1679560171445" duration="181000" />
+      <workItem from="1679578214975" duration="127000" />
+      <workItem from="1679885451504" duration="6930000" />
     </task>
     <task id="LOCAL-00001" summary="把mybatis改用mybaits plus,创建和编写了部分模块代码，分别是宿舍信息管理、宿舍缴费、宿舍报修">
       <created>1673774535630</created>

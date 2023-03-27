@@ -9,7 +9,7 @@ import java.util.List;
  * 宿舍每日分数浮动Service接口
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-20
  */
 public interface IDorDailyScoreChangeService extends IService<DorDailyScoreChange>
 {

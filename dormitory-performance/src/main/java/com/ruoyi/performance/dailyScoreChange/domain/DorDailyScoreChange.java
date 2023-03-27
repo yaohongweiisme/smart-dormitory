@@ -11,7 +11,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 宿舍每日分数浮动对象 dor_daily_score_change
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-20
  */
 @TableName("dor_daily_score_change")
 public class DorDailyScoreChange extends BaseEntity
@@ -30,6 +30,11 @@ public class DorDailyScoreChange extends BaseEntity
     @TableField("score_change_value")
     @Excel(name = "分数变动值")
     private Long scoreChangeValue;
+
+    /** 原因 */
+    @TableField("reason")
+    @Excel(name = "原因")
+    private String reason;
 
     /** 1代表加分，0代表扣分 */
     @TableField("kind")
@@ -63,6 +68,15 @@ public class DorDailyScoreChange extends BaseEntity
     {
         return scoreChangeValue;
     }
+    public void setReason(String reason) 
+    {
+        this.reason = reason;
+    }
+
+    public String getReason() 
+    {
+        return reason;
+    }
     public void setKind(Long kind) 
     {
         this.kind = kind;
@@ -79,6 +93,7 @@ public class DorDailyScoreChange extends BaseEntity
             .append("id", getId())
             .append("dorId", getDorId())
             .append("scoreChangeValue", getScoreChangeValue())
+            .append("reason", getReason())
             .append("kind", getKind())
             .toString();
     }

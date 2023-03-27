@@ -23,7 +23,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * 宿舍每日分数浮动Controller
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-20
  */
 @Controller
 @RequestMapping("/dormitoryPerformance/dailyScoreChange")
