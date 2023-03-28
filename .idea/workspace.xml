@@ -4,27 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="新增宿舍表宿舍楼字段">
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/static/img/dormitory.jpg" afterDir="false" />
+    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="修改界面和菜单分布">
+      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/test/java/ScrewTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/controller/DorDailyScoreChangeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/controller/DorDailyScoreChangeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/domain/DorDailyScoreChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/domain/DorDailyScoreChange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/mapper/DorDailyScoreChangeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/mapper/DorDailyScoreChangeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/IDorDailyScoreChangeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/IDorDailyScoreChangeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/impl/DorDailyScoreChangeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/impl/DorDailyScoreChangeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/mapper/dormitoryPerformance/DorDailyScoreChangeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/mapper/dormitoryPerformance/DorDailyScoreChangeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/dailyScoreChange.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/dailyScoreChange.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/static/css/login.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/static/css/login.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/static/css/login.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/static/css/login.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +97,17 @@
       </set>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ScrewTest.testScrew">
+    <configuration name="ScrewTest.testScrew" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ruoyi-admin" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ScrewTest" />
+      <option name="METHOD_NAME" value="testScrew" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RuoYiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ruoyi-admin" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ruoyi.RuoYiApplication" />
@@ -120,6 +115,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ScrewTest.testScrew" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -159,7 +159,7 @@
       <workItem from="1679280366925" duration="2940000" />
       <workItem from="1679560171445" duration="181000" />
       <workItem from="1679578214975" duration="127000" />
-      <workItem from="1679885451504" duration="6930000" />
+      <workItem from="1679885451504" duration="14862000" />
     </task>
     <task id="LOCAL-00001" summary="把mybatis改用mybaits plus,创建和编写了部分模块代码，分别是宿舍信息管理、宿舍缴费、宿舍报修">
       <created>1673774535630</created>
@@ -203,7 +203,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674787967485</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="修改界面和菜单分布">
+      <created>1679905534428</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679905534428</updated>
+    </task>
+    <task id="LOCAL-00008" summary="修改界面和菜单分布">
+      <created>1679906034829</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679906034829</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +243,8 @@
     <MESSAGE value="新增不受git控制的文件，比如target" />
     <MESSAGE value="新增宿舍楼管理子模块" />
     <MESSAGE value="新增宿舍表宿舍楼字段" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增宿舍表宿舍楼字段" />
+    <MESSAGE value="修改界面和菜单分布" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改界面和菜单分布" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
