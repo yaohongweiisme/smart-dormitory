@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.material.order.mapper.PurchaseOrderMapper">
+    
+    <resultMap type="PurchaseOrder" id="PurchaseOrderResult">
+        <result property="purchaseOrderId"    column="purchase_order_id"    />
+        <result property="objectList"    column="object_list"    />
+        <result property="purchasePerson"    column="purchase_person"    />
+        <result property="buildTime"    column="build_time"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <sql id="selectPurchaseOrderVo">
+        select purchase_order_id, object_list, purchase_person, build_time, status from purchase_order
+    </sql>
+
+    <select id="selectPurchaseOrderList" parameterType="PurchaseOrder" resultMap="PurchaseOrderResult">
+        <include refid="selectPurchaseOrderVo"/>
+        <where>  
+            <if test="objectList != null  and objectList != ''"> and object_list = #{objectList}</if>
+            <if test="purchasePerson != null  and purchasePerson != ''"> and purchase_person = #{purchasePerson}</if>
+            <if test="buildTime != null "> and build_time = #{buildTime}</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectPurchaseOrderByPurchaseOrderId" parameterType="Long" resultMap="PurchaseOrderResult">
+        <include refid="selectPurchaseOrderVo"/>
+        where purchase_order_id = #{purchaseOrderId}
+    </select>
+        
+    <insert id="insertPurchaseOrder" parameterType="PurchaseOrder">
+        insert into purchase_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="purchaseOrderId != null">purchase_order_id,</if>
+            <if test="objectList != null">object_list,</if>
+            <if test="purchasePerson != null">purchase_person,</if>
+            <if test="buildTime != null">build_time,</if>
+            <if test="status != null">status,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="purchaseOrderId != null">#{purchaseOrderId},</if>
+            <if test="objectList != null">#{objectList},</if>
+            <if test="purchasePerson != null">#{purchasePerson},</if>
+            <if test="buildTime != null">#{buildTime},</if>
+            <if test="status != null">#{status},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePurchaseOrder" parameterType="PurchaseOrder">
+        update purchase_order
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="objectList != null">object_list = #{objectList},</if>
+            <if test="purchasePerson != null">purchase_person = #{purchasePerson},</if>
+            <if test="buildTime != null">build_time = #{buildTime},</if>
+            <if test="status != null">status = #{status},</if>
+        </trim>
+        where purchase_order_id = #{purchaseOrderId}
+    </update>
+
+    <delete id="deletePurchaseOrderByPurchaseOrderId" parameterType="Long">
+        delete from purchase_order where purchase_order_id = #{purchaseOrderId}
+    </delete>
+
+    <delete id="deletePurchaseOrderByPurchaseOrderIds" parameterType="String">
+        delete from purchase_order where purchase_order_id in 
+        <foreach item="purchaseOrderId" collection="array" open="(" separator="," close=")">
+            #{purchaseOrderId}
+        </foreach>
+    </delete>
+
+</mapper>

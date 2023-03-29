@@ -4,12 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="修改界面和菜单分布">
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/test/java/ScrewTest.java" afterDir="false" />
+    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment=" 新增screw第三方工具导出数据库表结构文档">
+      <change afterPath="$PROJECT_DIR$/dormitory-material/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/controller/MaterialApplyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/domain/MaterialApply.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/mapper/MaterialApplyMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/service/IMaterialApplyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/service/impl/MaterialApplyServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/inventory/controller/MaterialInventoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/inventory/domain/MaterialInventory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/inventory/mapper/MaterialInventoryMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/inventory/service/IMaterialInventoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/inventory/service/impl/MaterialInventoryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/order/controller/PurchaseOrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/order/domain/PurchaseOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/order/mapper/PurchaseOrderMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/order/service/IPurchaseOrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/order/service/impl/PurchaseOrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/requirement/controller/PurchasingRequirementsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/requirement/domain/PurchasingRequirements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/requirement/mapper/PurchasingRequirementsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/requirement/service/IPurchasingRequirementsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/requirement/service/impl/PurchasingRequirementsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/mapper/apply/MaterialApplyMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/mapper/inventory/MaterialInventoryMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/mapper/material-requirement/PurchasingRequirementsMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/mapper/order/PurchaseOrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/apply/apply/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/apply/apply/apply.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/apply/apply/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/inventory/inventory/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/inventory/inventory/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/inventory/inventory/inventory.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/material-requirement/requirements/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/material-requirement/requirements/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/material-requirement/requirements/requirements.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/order/order/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/order/order/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/order/order/order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ruoyi-admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-generator/src/main/resources/vm/java/service.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/src/main/resources/vm/java/service.java.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ruoyi-generator/target/classes/vm/java/service.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/target/classes/vm/java/service.java.vm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +136,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ScrewTest.testScrew">
+  <component name="RunManager" selected="Spring Boot.RuoYiApplication">
     <configuration name="ScrewTest.testScrew" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ruoyi-admin" />
       <option name="PACKAGE_NAME" value="" />
@@ -159,7 +198,7 @@
       <workItem from="1679280366925" duration="2940000" />
       <workItem from="1679560171445" duration="181000" />
       <workItem from="1679578214975" duration="127000" />
-      <workItem from="1679885451504" duration="14862000" />
+      <workItem from="1679885451504" duration="24555000" />
     </task>
     <task id="LOCAL-00001" summary="把mybatis改用mybaits plus,创建和编写了部分模块代码，分别是宿舍信息管理、宿舍缴费、宿舍报修">
       <created>1673774535630</created>
@@ -217,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679906034829</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary=" 新增screw第三方工具导出数据库表结构文档">
+      <created>1679992052036</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679992052036</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +290,8 @@
     <MESSAGE value="新增宿舍楼管理子模块" />
     <MESSAGE value="新增宿舍表宿舍楼字段" />
     <MESSAGE value="修改界面和菜单分布" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改界面和菜单分布" />
+    <MESSAGE value=" 新增screw第三方工具导出数据库表结构文档" />
+    <option name="LAST_COMMIT_MESSAGE" value=" 新增screw第三方工具导出数据库表结构文档" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

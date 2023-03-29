@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ruoyi-framework" />
         <module name="ruoyi-system" />
+        <module name="dormitory-material" />
         <module name="dormitory-performance" />
         <module name="dormitory-basicPart" />
         <module name="dormitory-repair" />

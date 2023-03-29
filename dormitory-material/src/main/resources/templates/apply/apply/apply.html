@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('物资申领列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>申领物品名字：</label>
+                                <input type="text" name="materialName"/>
+                            </li>
+                            <li>
+                                <label>申领人id：</label>
+                                <input type="text" name="applyPerson"/>
+                            </li>
+                            <li>
+                                <label>申领数量：</label>
+                                <input type="text" name="number"/>
+                            </li>
+                            <li>
+                                <label>申领时间：</label>
+                                <input type="text" class="time-input" placeholder="请选择申领时间" name="applyTime"/>
+                            </li>
+                            <li>
+                                <label>处理人id：</label>
+                                <input type="text" name="handlePeople"/>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="apply:apply:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="apply:apply:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="apply:apply:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="apply:apply:export">
+                    <i class="fa fa-download"></i> 导出
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('apply:apply:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('apply:apply:remove')}]];
+        var prefix = ctx + "apply/apply";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "物资申领",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'applicationId',
+                    title: '申领表id',
+                    visible: false
+                },
+                {
+                    field: 'materialName',
+                    title: '申领物品名字'
+                },
+                {
+                    field: 'applyPerson',
+                    title: '申领人id'
+                },
+                {
+                    field: 'number',
+                    title: '申领数量'
+                },
+                {
+                    field: 'applyTime',
+                    title: '申领时间'
+                },
+                {
+                    field: 'status',
+                    title: '申领状态(0申领中，1已处理)'
+                },
+                {
+                    field: 'handlePeople',
+                    title: '处理人id'
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.applicationId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.applicationId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+</html>

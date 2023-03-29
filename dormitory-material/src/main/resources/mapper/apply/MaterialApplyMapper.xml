@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.material.apply.mapper.MaterialApplyMapper">
+    
+    <resultMap type="MaterialApply" id="MaterialApplyResult">
+        <result property="applicationId"    column="application_id"    />
+        <result property="materialName"    column="material_name"    />
+        <result property="applyPerson"    column="apply_person"    />
+        <result property="number"    column="number"    />
+        <result property="applyTime"    column="apply_time"    />
+        <result property="status"    column="status"    />
+        <result property="handlePeople"    column="handle_people"    />
+    </resultMap>
+
+    <sql id="selectMaterialApplyVo">
+        select application_id, material_name, apply_person, number, apply_time, status, handle_people from material_apply
+    </sql>
+
+    <select id="selectMaterialApplyList" parameterType="MaterialApply" resultMap="MaterialApplyResult">
+        <include refid="selectMaterialApplyVo"/>
+        <where>  
+            <if test="materialName != null  and materialName != ''"> and material_name like concat('%', #{materialName}, '%')</if>
+            <if test="applyPerson != null  and applyPerson != ''"> and apply_person = #{applyPerson}</if>
+            <if test="number != null "> and number = #{number}</if>
+            <if test="applyTime != null "> and apply_time = #{applyTime}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="handlePeople != null "> and handle_people = #{handlePeople}</if>
+        </where>
+    </select>
+    
+    <select id="selectMaterialApplyByApplicationId" parameterType="Long" resultMap="MaterialApplyResult">
+        <include refid="selectMaterialApplyVo"/>
+        where application_id = #{applicationId}
+    </select>
+        
+    <insert id="insertMaterialApply" parameterType="MaterialApply">
+        insert into material_apply
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="applicationId != null">application_id,</if>
+            <if test="materialName != null">material_name,</if>
+            <if test="applyPerson != null">apply_person,</if>
+            <if test="number != null">number,</if>
+            <if test="applyTime != null">apply_time,</if>
+            <if test="status != null">status,</if>
+            <if test="handlePeople != null">handle_people,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="applicationId != null">#{applicationId},</if>
+            <if test="materialName != null">#{materialName},</if>
+            <if test="applyPerson != null">#{applyPerson},</if>
+            <if test="number != null">#{number},</if>
+            <if test="applyTime != null">#{applyTime},</if>
+            <if test="status != null">#{status},</if>
+            <if test="handlePeople != null">#{handlePeople},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMaterialApply" parameterType="MaterialApply">
+        update material_apply
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="materialName != null">material_name = #{materialName},</if>
+            <if test="applyPerson != null">apply_person = #{applyPerson},</if>
+            <if test="number != null">number = #{number},</if>
+            <if test="applyTime != null">apply_time = #{applyTime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="handlePeople != null">handle_people = #{handlePeople},</if>
+        </trim>
+        where application_id = #{applicationId}
+    </update>
+
+    <delete id="deleteMaterialApplyByApplicationId" parameterType="Long">
+        delete from material_apply where application_id = #{applicationId}
+    </delete>
+
+    <delete id="deleteMaterialApplyByApplicationIds" parameterType="String">
+        delete from material_apply where application_id in 
+        <foreach item="applicationId" collection="array" open="(" separator="," close=")">
+            #{applicationId}
+        </foreach>
+    </delete>
+
+</mapper>
