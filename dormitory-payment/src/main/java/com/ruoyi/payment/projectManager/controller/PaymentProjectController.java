@@ -1,29 +1,23 @@
 package com.ruoyi.payment.projectManager.controller;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
+import com.ruoyi.common.annotation.Log;
+import com.ruoyi.common.core.controller.BaseController;
+import com.ruoyi.common.core.domain.AjaxResult;
+import com.ruoyi.common.core.page.TableDataInfo;
+import com.ruoyi.common.enums.BusinessType;
+import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.dormitory.buildingInfo.domain.BuildingInfo;
 import com.ruoyi.dormitory.buildingInfo.service.IBuildingInfoService;
-import com.ruoyi.dormitory.stuDormitory.domain.Dormitory;
 import com.ruoyi.dormitory.stuDormitory.service.IDormitoryService;
+import com.ruoyi.payment.projectManager.domain.PaymentProject;
+import com.ruoyi.payment.projectManager.service.IPaymentProjectService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import com.ruoyi.common.annotation.Log;
-import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.payment.projectManager.domain.PaymentProject;
-import com.ruoyi.payment.projectManager.service.IPaymentProjectService;
-import com.ruoyi.common.core.controller.BaseController;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.utils.poi.ExcelUtil;
-import com.ruoyi.common.core.page.TableDataInfo;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 缴费项目管理Controller
@@ -138,4 +132,6 @@ public class PaymentProjectController extends BaseController
     {
         return toAjax(paymentProjectService.deletePaymentProjectByProjectIds(ids));
     }
+
+    ///todo 删除项目时删除缴费状态表中关于该项目id的缴费状态细分数据
 }

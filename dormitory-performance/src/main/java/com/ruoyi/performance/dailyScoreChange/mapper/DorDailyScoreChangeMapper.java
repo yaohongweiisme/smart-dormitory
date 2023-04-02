@@ -1,15 +1,14 @@
 package com.ruoyi.performance.dailyScoreChange.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ruoyi.performance.dailyScoreChange.domain.DorDailyScoreChange;
-
 import java.util.List;
+import com.ruoyi.performance.dailyScoreChange.domain.DorDailyScoreChange;
 
 /**
  * 宿舍每日分数浮动Mapper接口
  * 
  * @author ruoyi
- * @date 2023-03-20
+ * @date 2023-03-31
  */
 public interface DorDailyScoreChangeMapper extends BaseMapper<DorDailyScoreChange>
 {

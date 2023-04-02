@@ -11,12 +11,16 @@
                     <div class="select-list">
                         <ul>
                             <li>
-                                <label>宿舍楼id：</label>
-                                <input type="text" name="buildingId"/>
+                                <label>标题：</label>
+                                <input type="text" name="title"/>
                             </li>
                             <li>
                                 <label>宿舍编号：</label>
                                 <input type="text" name="dorId"/>
+                            </li>
+                            <li>
+                                <label>宿舍楼id：</label>
+                                <input type="text" name="buildingId"/>
                             </li>
                             <li>
                                 <label>总分数：</label>
@@ -28,7 +32,7 @@
                             </li>
                             <li>
                                 <label>最后更新时间：</label>
-                                <input type="text" class="time-input" placeholder="请选择最后更新时间" name="lastUpdateTime"/>
+                                <input type="text" class="time-input" placeholder="请选择最后更新时间" name="latestUpdateTime"/>
                             </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
@@ -81,12 +85,16 @@
                     visible: false
                 },
                 {
-                    field: 'buildingId',
-                    title: '宿舍楼id'
+                    field: 'title',
+                    title: '标题'
                 },
                 {
                     field: 'dorId',
                     title: '宿舍编号'
+                },
+                {
+                    field: 'buildingId',
+                    title: '宿舍楼id'
                 },
                 {
                     field: 'totalScore',
@@ -97,7 +105,7 @@
                     title: '生成时间'
                 },
                 {
-                    field: 'lastUpdateTime',
+                    field: 'latestUpdateTime',
                     title: '最后更新时间'
                 },
                 {

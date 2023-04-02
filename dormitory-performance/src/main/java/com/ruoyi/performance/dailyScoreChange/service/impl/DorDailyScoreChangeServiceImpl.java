@@ -13,7 +13,7 @@ import com.ruoyi.common.core.text.Convert;
  * 宿舍每日分数浮动Service业务层处理
  * 
  * @author ruoyi
- * @date 2023-03-20
+ * @date 2023-03-31
  */
 @Service
 public class DorDailyScoreChangeServiceImpl extends ServiceImpl<DorDailyScoreChangeMapper,DorDailyScoreChange> implements IDorDailyScoreChangeService

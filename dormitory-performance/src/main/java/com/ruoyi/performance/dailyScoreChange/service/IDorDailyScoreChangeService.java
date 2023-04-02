@@ -1,15 +1,14 @@
 package com.ruoyi.performance.dailyScoreChange.service;
 
+import java.util.List;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ruoyi.performance.dailyScoreChange.domain.DorDailyScoreChange;
-
-import java.util.List;
 
 /**
  * 宿舍每日分数浮动Service接口
  * 
  * @author ruoyi
- * @date 2023-03-20
+ * @date 2023-03-31
  */
 public interface IDorDailyScoreChangeService extends IService<DorDailyScoreChange>
 {

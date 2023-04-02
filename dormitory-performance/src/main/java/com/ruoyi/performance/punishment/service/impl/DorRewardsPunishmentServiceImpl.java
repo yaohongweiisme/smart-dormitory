@@ -1,20 +1,20 @@
 package com.ruoyi.performance.punishment.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ruoyi.common.core.text.Convert;
-import com.ruoyi.performance.punishment.domain.DorRewardsPunishment;
-import com.ruoyi.performance.punishment.mapper.DorRewardsPunishmentMapper;
-import com.ruoyi.performance.punishment.service.IDorRewardsPunishmentService;
+import java.util.List;
+import com.ruoyi.common.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import com.ruoyi.performance.punishment.mapper.DorRewardsPunishmentMapper;
+import com.ruoyi.performance.punishment.domain.DorRewardsPunishment;
+import com.ruoyi.performance.punishment.service.IDorRewardsPunishmentService;
+import com.ruoyi.common.core.text.Convert;
 
 /**
  * 宿舍奖惩活动Service业务层处理
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-31
  */
 @Service
 public class DorRewardsPunishmentServiceImpl extends ServiceImpl<DorRewardsPunishmentMapper,DorRewardsPunishment> implements IDorRewardsPunishmentService
@@ -55,6 +55,7 @@ public class DorRewardsPunishmentServiceImpl extends ServiceImpl<DorRewardsPunis
     @Override
     public int insertDorRewardsPunishment(DorRewardsPunishment dorRewardsPunishment)
     {
+        dorRewardsPunishment.setCreateTime(DateUtils.getNowDate());
         return dorRewardsPunishmentMapper.insertDorRewardsPunishment(dorRewardsPunishment);
     }
 

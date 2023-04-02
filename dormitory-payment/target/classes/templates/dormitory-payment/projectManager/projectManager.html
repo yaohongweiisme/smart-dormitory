@@ -27,9 +27,8 @@
 <!--                                <input type="text" name="projectProgress"/>-->
                                 <select  name="projectProgress" >
                                     <option value=""> 请选择进度</option>
-                                    <option case="0" value="0">新建</option>
-                                    <option case="1" value="1">进行中</option>
-                                    <option case="2" value="2">已完成</option>
+                                    <option case="0" value="0">进行中</option>
+                                    <option case="1" value="1">已完成</option>
                                 </select>
                             </li>
                             <li>
@@ -99,11 +98,11 @@
                     title: '缴费进度',
                     formatter:function(value){
                         if(value==0){
-                            return "新建"
-                        }else if(value==1){
                             return "进行中"
-                        }else {
+                        }else if(value==1){
                             return "已完成"
+                        }else {
+                            return "未知"
                         }
                     }
                 },

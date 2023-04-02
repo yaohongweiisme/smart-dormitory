@@ -13,7 +13,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 物资采购单对象 purchase_order
  * 
  * @author ruoyi
- * @date 2023-03-28
+ * @date 2023-04-01
  */
 @TableName("purchase_order")
 public class PurchaseOrder extends BaseEntity

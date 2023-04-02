@@ -1,29 +1,26 @@
 package com.ruoyi.performance.dailyScoreChange.controller;
 
-import java.util.List;
+import com.ruoyi.common.annotation.Log;
+import com.ruoyi.common.core.controller.BaseController;
+import com.ruoyi.common.core.domain.AjaxResult;
+import com.ruoyi.common.core.page.TableDataInfo;
+import com.ruoyi.common.enums.BusinessType;
+import com.ruoyi.common.utils.poi.ExcelUtil;
+import com.ruoyi.performance.dailyScoreChange.domain.DorDailyScoreChange;
+import com.ruoyi.performance.dailyScoreChange.service.IDorDailyScoreChangeService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import com.ruoyi.common.annotation.Log;
-import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.performance.dailyScoreChange.domain.DorDailyScoreChange;
-import com.ruoyi.performance.dailyScoreChange.service.IDorDailyScoreChangeService;
-import com.ruoyi.common.core.controller.BaseController;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.utils.poi.ExcelUtil;
-import com.ruoyi.common.core.page.TableDataInfo;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 宿舍每日分数浮动Controller
  * 
  * @author ruoyi
- * @date 2023-03-20
+ * @date 2023-03-31
  */
 @Controller
 @RequestMapping("/dormitoryPerformance/dailyScoreChange")
@@ -86,6 +83,7 @@ public class DorDailyScoreChangeController extends BaseController
     @ResponseBody
     public AjaxResult addSave(DorDailyScoreChange dorDailyScoreChange)
     {
+        //todo 扣减分时计入总分数表中，同时显示总分数表标题，而不是id
         return toAjax(dorDailyScoreChangeService.insertDorDailyScoreChange(dorDailyScoreChange));
     }
 

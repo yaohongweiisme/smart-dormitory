@@ -1,15 +1,14 @@
 package com.ruoyi.performance.totalScore.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ruoyi.performance.totalScore.domain.DorTotalScore;
-
 import java.util.List;
+import com.ruoyi.performance.totalScore.domain.DorTotalScore;
 
 /**
  * 宿舍总分数Mapper接口
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-31
  */
 public interface DorTotalScoreMapper extends BaseMapper<DorTotalScore>
 {

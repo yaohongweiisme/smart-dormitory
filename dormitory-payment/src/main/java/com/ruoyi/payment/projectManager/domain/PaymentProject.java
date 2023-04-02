@@ -3,8 +3,6 @@ package com.ruoyi.payment.projectManager.domain;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
@@ -41,11 +39,12 @@ public class PaymentProject extends BaseEntity
 
     /** 缴费进度(0=新建，1=进行中，2=已完成) */
     @TableField("project_progress")
-    @Excel(name = "缴费进度(0=新建，1=进行中，2=已完成)")
+    @Excel(name = "缴费进度(0=进行中，1=已完成)")
     private Long projectProgress;
 
     /** 创建时间 */
     @Excel(name = "创建时间")
+    @TableField("create_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 

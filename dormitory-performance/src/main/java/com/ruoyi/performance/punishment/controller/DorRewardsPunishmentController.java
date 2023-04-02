@@ -23,7 +23,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * 宿舍奖惩活动Controller
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-31
  */
 @Controller
 @RequestMapping("/dormitoryPerformance/punishment")

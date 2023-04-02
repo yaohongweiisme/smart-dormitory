@@ -15,16 +15,20 @@
                                 <input type="text" name="dorId"/>
                             </li>
                             <li>
-                                <label>分数变动值：</label>
+                                <label>宿舍楼id：</label>
+                                <input type="text" name="buildingId"/>
+                            </li>
+                            <li>
+                                <label>对应总分数表编号：</label>
+                                <input type="text" name="totalSorceId"/>
+                            </li>
+                            <li>
+                                <label>分数变动详情值：</label>
                                 <input type="text" name="scoreChangeValue"/>
                             </li>
                             <li>
                                 <label>原因：</label>
                                 <input type="text" name="reason"/>
-                            </li>
-                            <li>
-                                <label>1代表加分，0代表扣分：</label>
-                                <input type="text" name="kind"/>
                             </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
@@ -81,16 +85,20 @@
                     title: '宿舍编号'
                 },
                 {
+                    field: 'buildingId',
+                    title: '宿舍楼id'
+                },
+                {
+                    field: 'totalSorceId',
+                    title: '对应总分数表编号'
+                },
+                {
                     field: 'scoreChangeValue',
-                    title: '分数变动值'
+                    title: '分数变动详情值'
                 },
                 {
                     field: 'reason',
                     title: '原因'
-                },
-                {
-                    field: 'kind',
-                    title: '1代表加分，0代表扣分'
                 },
                 {
                     title: '操作',

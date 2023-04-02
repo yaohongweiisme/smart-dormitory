@@ -8,7 +8,7 @@ import com.ruoyi.material.apply.domain.MaterialApply;
  * 物资申领Mapper接口
  * 
  * @author ruoyi
- * @date 2023-03-28
+ * @date 2023-04-01
  */
 public interface MaterialApplyMapper extends BaseMapper<MaterialApply>
 {

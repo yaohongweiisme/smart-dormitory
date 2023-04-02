@@ -6,25 +6,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <resultMap type="DorTotalScore" id="DorTotalScoreResult">
         <result property="id"    column="id"    />
-        <result property="buildingId"    column="building_Id"    />
+        <result property="title"    column="title"    />
         <result property="dorId"    column="dor_id"    />
+        <result property="buildingId"    column="building_Id"    />
         <result property="totalScore"    column="total_score"    />
         <result property="buildTime"    column="build_time"    />
-        <result property="lastUpdateTime"    column="last_update_time"    />
+        <result property="latestUpdateTime"    column="latest_update_time"    />
     </resultMap>
 
     <sql id="selectDorTotalScoreVo">
-        select id, building_Id, dor_id, total_score, build_time, last_update_time from dor_total_score
+        select id, title, dor_id, building_Id, total_score, build_time, latest_update_time from dor_total_score
     </sql>
 
     <select id="selectDorTotalScoreList" parameterType="DorTotalScore" resultMap="DorTotalScoreResult">
         <include refid="selectDorTotalScoreVo"/>
         <where>  
-            <if test="buildingId != null  and buildingId != ''"> and building_Id = #{buildingId}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
             <if test="dorId != null  and dorId != ''"> and dor_id = #{dorId}</if>
+            <if test="buildingId != null  and buildingId != ''"> and building_Id = #{buildingId}</if>
             <if test="totalScore != null "> and total_score = #{totalScore}</if>
             <if test="buildTime != null "> and build_time = #{buildTime}</if>
-            <if test="lastUpdateTime != null "> and last_update_time = #{lastUpdateTime}</if>
+            <if test="latestUpdateTime != null "> and latest_update_time = #{latestUpdateTime}</if>
         </where>
     </select>
     
@@ -36,29 +38,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <insert id="insertDorTotalScore" parameterType="DorTotalScore" useGeneratedKeys="true" keyProperty="id">
         insert into dor_total_score
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="buildingId != null">building_Id,</if>
+            <if test="title != null">title,</if>
             <if test="dorId != null">dor_id,</if>
+            <if test="buildingId != null">building_Id,</if>
             <if test="totalScore != null">total_score,</if>
             <if test="buildTime != null">build_time,</if>
-            <if test="lastUpdateTime != null">last_update_time,</if>
+            <if test="latestUpdateTime != null">latest_update_time,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="buildingId != null">#{buildingId},</if>
+            <if test="title != null">#{title},</if>
             <if test="dorId != null">#{dorId},</if>
+            <if test="buildingId != null">#{buildingId},</if>
             <if test="totalScore != null">#{totalScore},</if>
             <if test="buildTime != null">#{buildTime},</if>
-            <if test="lastUpdateTime != null">#{lastUpdateTime},</if>
+            <if test="latestUpdateTime != null">#{latestUpdateTime},</if>
          </trim>
     </insert>
 
     <update id="updateDorTotalScore" parameterType="DorTotalScore">
         update dor_total_score
         <trim prefix="SET" suffixOverrides=",">
-            <if test="buildingId != null">building_Id = #{buildingId},</if>
+            <if test="title != null">title = #{title},</if>
             <if test="dorId != null">dor_id = #{dorId},</if>
+            <if test="buildingId != null">building_Id = #{buildingId},</if>
             <if test="totalScore != null">total_score = #{totalScore},</if>
             <if test="buildTime != null">build_time = #{buildTime},</if>
-            <if test="lastUpdateTime != null">last_update_time = #{lastUpdateTime},</if>
+            <if test="latestUpdateTime != null">latest_update_time = #{latestUpdateTime},</if>
         </trim>
         where id = #{id}
     </update>

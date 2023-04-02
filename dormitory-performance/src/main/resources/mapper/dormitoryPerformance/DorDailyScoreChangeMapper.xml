@@ -7,22 +7,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <resultMap type="DorDailyScoreChange" id="DorDailyScoreChangeResult">
         <result property="id"    column="id"    />
         <result property="dorId"    column="dor_id"    />
+        <result property="buildingId"    column="building_Id"    />
+        <result property="totalSorceId"    column="total_sorce_id"    />
         <result property="scoreChangeValue"    column="score_change_value"    />
         <result property="reason"    column="reason"    />
-        <result property="kind"    column="kind"    />
     </resultMap>
 
     <sql id="selectDorDailyScoreChangeVo">
-        select id, dor_id, score_change_value, reason, kind from dor_daily_score_change
+        select id, dor_id, building_Id, total_sorce_id, score_change_value, reason from dor_daily_score_change
     </sql>
 
     <select id="selectDorDailyScoreChangeList" parameterType="DorDailyScoreChange" resultMap="DorDailyScoreChangeResult">
         <include refid="selectDorDailyScoreChangeVo"/>
         <where>  
             <if test="dorId != null  and dorId != ''"> and dor_id = #{dorId}</if>
+            <if test="buildingId != null "> and building_Id = #{buildingId}</if>
+            <if test="totalSorceId != null "> and total_sorce_id = #{totalSorceId}</if>
             <if test="scoreChangeValue != null "> and score_change_value = #{scoreChangeValue}</if>
             <if test="reason != null  and reason != ''"> and reason = #{reason}</if>
-            <if test="kind != null "> and kind = #{kind}</if>
         </where>
     </select>
     
@@ -35,15 +37,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into dor_daily_score_change
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="dorId != null">dor_id,</if>
+            <if test="buildingId != null">building_Id,</if>
+            <if test="totalSorceId != null">total_sorce_id,</if>
             <if test="scoreChangeValue != null">score_change_value,</if>
             <if test="reason != null and reason != ''">reason,</if>
-            <if test="kind != null">kind,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="dorId != null">#{dorId},</if>
+            <if test="buildingId != null">#{buildingId},</if>
+            <if test="totalSorceId != null">#{totalSorceId},</if>
             <if test="scoreChangeValue != null">#{scoreChangeValue},</if>
             <if test="reason != null and reason != ''">#{reason},</if>
-            <if test="kind != null">#{kind},</if>
          </trim>
     </insert>
 
@@ -51,9 +55,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update dor_daily_score_change
         <trim prefix="SET" suffixOverrides=",">
             <if test="dorId != null">dor_id = #{dorId},</if>
+            <if test="buildingId != null">building_Id = #{buildingId},</if>
+            <if test="totalSorceId != null">total_sorce_id = #{totalSorceId},</if>
             <if test="scoreChangeValue != null">score_change_value = #{scoreChangeValue},</if>
             <if test="reason != null and reason != ''">reason = #{reason},</if>
-            <if test="kind != null">kind = #{kind},</if>
         </trim>
         where id = #{id}
     </update>

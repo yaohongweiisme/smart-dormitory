@@ -1,13 +1,19 @@
 package com.ruoyi.payment.projectManager.service.impl;
 
-import java.util.List;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.dormitory.stuDormitory.domain.Dormitory;
+import com.ruoyi.dormitory.stuDormitory.mapper.DormitoryMapper;
+import com.ruoyi.payment.projectManager.domain.PaymentProject;
+import com.ruoyi.payment.projectManager.mapper.PaymentProjectMapper;
+import com.ruoyi.payment.projectManager.service.IPaymentProjectService;
+import com.ruoyi.payment.statusManager.domain.PaymentStatus;
+import com.ruoyi.payment.statusManager.mapper.PaymentStatusMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.payment.projectManager.mapper.PaymentProjectMapper;
-import com.ruoyi.payment.projectManager.domain.PaymentProject;
-import com.ruoyi.payment.projectManager.service.IPaymentProjectService;
-import com.ruoyi.common.core.text.Convert;
+
+import java.util.List;
 
 /**
  * 缴费项目管理Service业务层处理
@@ -20,6 +26,10 @@ public class PaymentProjectServiceImpl implements IPaymentProjectService
 {
     @Autowired
     private PaymentProjectMapper paymentProjectMapper;
+    @Autowired
+    private DormitoryMapper dormitoryMapper;
+    @Autowired
+    private PaymentStatusMapper paymentStatusMapper;
 
     /**
      * 查询缴费项目管理
@@ -55,7 +65,27 @@ public class PaymentProjectServiceImpl implements IPaymentProjectService
     public int insertPaymentProject(PaymentProject paymentProject)
     {
         paymentProject.setCreateTime(DateUtils.getNowDate());
-        return paymentProjectMapper.insertPaymentProject(paymentProject);
+        int insertResult = paymentProjectMapper.insertPaymentProject(paymentProject);
+        if(insertResult!=0){
+            PaymentStatus paymentStatus = new PaymentStatus();
+            paymentStatus.setProjectId(paymentProject.getProjectId());
+            paymentStatus.setStatus(0L);
+            paymentStatus.setCreateTime(DateUtils.getNowDate());
+            List<Dormitory> dormitories = getDormitoriesByBuildingId(paymentProject);
+            for (Dormitory dormitory : dormitories) {
+                String dorId = dormitory.getDorId();
+                paymentStatus.setDormitoryId(dorId);
+                paymentStatusMapper.insert(paymentStatus);
+            }
+        }
+        return insertResult;
+    }
+
+    private List<Dormitory> getDormitoriesByBuildingId(PaymentProject paymentProject) {
+        String projectObject = paymentProject.getProjectObject();
+        LambdaQueryWrapper<Dormitory> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Dormitory::getBuildingId,projectObject);
+        return dormitoryMapper.selectList(wrapper);
     }
 
     /**

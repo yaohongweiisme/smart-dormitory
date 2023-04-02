@@ -8,7 +8,7 @@ import com.ruoyi.material.inventory.domain.MaterialInventory;
  * 物资库存Mapper接口
  * 
  * @author ruoyi
- * @date 2023-03-28
+ * @date 2023-04-01
  */
 public interface MaterialInventoryMapper extends BaseMapper<MaterialInventory>
 {

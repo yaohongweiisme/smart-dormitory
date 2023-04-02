@@ -11,7 +11,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 宿舍奖惩活动对象 dor_rewards_punishment
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-31
  */
 @TableName("dor_rewards_punishment")
 public class DorRewardsPunishment extends BaseEntity
@@ -25,6 +25,11 @@ public class DorRewardsPunishment extends BaseEntity
     @TableField("dor_id")
     @Excel(name = "宿舍编号")
     private String dorId;
+
+    /** 宿舍楼id */
+    @TableField("building_Id")
+    @Excel(name = "宿舍楼id")
+    private Long buildingId;
 
     /** 奖惩内容 */
     @TableField("content")
@@ -59,6 +64,15 @@ public class DorRewardsPunishment extends BaseEntity
     {
         return dorId;
     }
+    public void setBuildingId(Long buildingId) 
+    {
+        this.buildingId = buildingId;
+    }
+
+    public Long getBuildingId() 
+    {
+        return buildingId;
+    }
     public void setContent(String content) 
     {
         this.content = content;
@@ -92,9 +106,11 @@ public class DorRewardsPunishment extends BaseEntity
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("id", getId())
             .append("dorId", getDorId())
+            .append("buildingId", getBuildingId())
             .append("content", getContent())
             .append("kind", getKind())
             .append("state", getState())
+            .append("createTime", getCreateTime())
             .toString();
     }
 }

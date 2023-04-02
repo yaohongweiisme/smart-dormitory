@@ -1,15 +1,14 @@
 package com.ruoyi.performance.punishment.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ruoyi.performance.punishment.domain.DorRewardsPunishment;
-
 import java.util.List;
+import com.ruoyi.performance.punishment.domain.DorRewardsPunishment;
 
 /**
  * 宿舍奖惩活动Mapper接口
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-31
  */
 public interface DorRewardsPunishmentMapper extends BaseMapper<DorRewardsPunishment>
 {

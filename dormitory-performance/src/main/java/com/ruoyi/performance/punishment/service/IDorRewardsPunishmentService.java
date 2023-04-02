@@ -1,15 +1,14 @@
 package com.ruoyi.performance.punishment.service;
 
+import java.util.List;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ruoyi.performance.punishment.domain.DorRewardsPunishment;
-
-import java.util.List;
 
 /**
  * 宿舍奖惩活动Service接口
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-31
  */
 public interface IDorRewardsPunishmentService extends IService<DorRewardsPunishment>
 {

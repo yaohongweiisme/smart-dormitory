@@ -1118,19 +1118,19 @@ var table = {
                     $.operate.submit(url, "post", "json", data);
                 });
             },
-            // 批量查看信息
-            fuck: function() {
+            // 合并采购需求为采购单
+            mergeRequirements: function() {
                 table.set();
                 var rows = $.common.isEmpty(table.options.uniqueId) ? $.table.selectFirstColumns() : $.table.selectColumns(table.options.uniqueId);
                 if (rows.length == 0) {
                     $.modal.alertWarning("请至少选择一条记录");
                     return;
                 }
-                $.modal.confirm("确认要和平选中的采购需求吗？共有" + rows.length + "条数据", function() {
-                    var url = table.options.removeUrl;
-                    const requireThing = {"ids": rows.join()};
-                    // $.operate.submit(url, "post", "json", data);
-                    console.log(requireThing);
+                $.modal.confirm("确认要合并选中的采购需求吗？共有" + rows.length + "条数据", function() {
+                    var url = table.options.mergeUrl;
+                    var data = {"ids": rows.join()};
+                    console.log(data);
+                    $.operate.submit(url, "post", "json", data);
                 });
             },
             // 清空信息

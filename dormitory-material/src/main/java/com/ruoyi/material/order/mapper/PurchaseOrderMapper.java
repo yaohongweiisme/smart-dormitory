@@ -8,7 +8,7 @@ import com.ruoyi.material.order.domain.PurchaseOrder;
  * 物资采购单Mapper接口
  * 
  * @author ruoyi
- * @date 2023-03-28
+ * @date 2023-04-01
  */
 public interface PurchaseOrderMapper extends BaseMapper<PurchaseOrder>
 {

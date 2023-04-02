@@ -13,7 +13,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 宿舍总分数对象 dor_total_score
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-31
  */
 @TableName("dor_total_score")
 public class DorTotalScore extends BaseEntity
@@ -23,15 +23,20 @@ public class DorTotalScore extends BaseEntity
     /** 总分数表id */
     private Long id;
 
-    /** 宿舍楼id */
-    @TableField("building_Id")
-    @Excel(name = "宿舍楼id")
-    private String buildingId;
+    /** 标题 */
+    @TableField("title")
+    @Excel(name = "标题")
+    private String title;
 
     /** 宿舍编号 */
     @TableField("dor_id")
     @Excel(name = "宿舍编号")
     private String dorId;
+
+    /** 宿舍楼id */
+    @TableField("building_Id")
+    @Excel(name = "宿舍楼id")
+    private String buildingId;
 
     /** 总分数 */
     @TableField("total_score")
@@ -45,10 +50,10 @@ public class DorTotalScore extends BaseEntity
     private Date buildTime;
 
     /** 最后更新时间 */
-    @TableField("last_update_time")
+    @TableField("latest_update_time")
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Excel(name = "最后更新时间", width = 30, dateFormat = "yyyy-MM-dd")
-    private Date lastUpdateTime;
+    private Date latestUpdateTime;
 
     public void setId(Long id) 
     {
@@ -59,14 +64,14 @@ public class DorTotalScore extends BaseEntity
     {
         return id;
     }
-    public void setBuildingId(String buildingId) 
+    public void setTitle(String title) 
     {
-        this.buildingId = buildingId;
+        this.title = title;
     }
 
-    public String getBuildingId() 
+    public String getTitle() 
     {
-        return buildingId;
+        return title;
     }
     public void setDorId(String dorId) 
     {
@@ -76,6 +81,15 @@ public class DorTotalScore extends BaseEntity
     public String getDorId() 
     {
         return dorId;
+    }
+    public void setBuildingId(String buildingId) 
+    {
+        this.buildingId = buildingId;
+    }
+
+    public String getBuildingId() 
+    {
+        return buildingId;
     }
     public void setTotalScore(Long totalScore) 
     {
@@ -95,25 +109,26 @@ public class DorTotalScore extends BaseEntity
     {
         return buildTime;
     }
-    public void setLastUpdateTime(Date lastUpdateTime) 
+    public void setLatestUpdateTime(Date latestUpdateTime) 
     {
-        this.lastUpdateTime = lastUpdateTime;
+        this.latestUpdateTime = latestUpdateTime;
     }
 
-    public Date getLastUpdateTime() 
+    public Date getLatestUpdateTime() 
     {
-        return lastUpdateTime;
+        return latestUpdateTime;
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("id", getId())
-            .append("buildingId", getBuildingId())
+            .append("title", getTitle())
             .append("dorId", getDorId())
+            .append("buildingId", getBuildingId())
             .append("totalScore", getTotalScore())
             .append("buildTime", getBuildTime())
-            .append("lastUpdateTime", getLastUpdateTime())
+            .append("latestUpdateTime", getLatestUpdateTime())
             .toString();
     }
 }

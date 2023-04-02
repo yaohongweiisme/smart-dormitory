@@ -1,20 +1,23 @@
 package com.ruoyi.payment.statusManager.service.impl;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.dormitory.stuDormitory.domain.Dormitory;
+import com.ruoyi.dormitory.stuDormitory.mapper.DormitoryMapper;
 import com.ruoyi.payment.projectManager.domain.PaymentProject;
 import com.ruoyi.payment.projectManager.service.IPaymentProjectService;
+import com.ruoyi.payment.statusManager.domain.PaymentStatus;
+import com.ruoyi.payment.statusManager.mapper.PaymentStatusMapper;
+import com.ruoyi.payment.statusManager.service.IPaymentStatusService;
 import com.ruoyi.payment.statusManager.vo.PaymentStatusVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.payment.statusManager.mapper.PaymentStatusMapper;
-import com.ruoyi.payment.statusManager.domain.PaymentStatus;
-import com.ruoyi.payment.statusManager.service.IPaymentStatusService;
-import com.ruoyi.common.core.text.Convert;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 缴费状态Service业务层处理
@@ -29,6 +32,8 @@ public class PaymentStatusServiceImpl extends ServiceImpl<PaymentStatusMapper, P
 
     @Autowired
     private IPaymentProjectService paymentProjectService;
+    @Autowired
+    private DormitoryMapper dormitoryMapper;
 
     /**
      * 查询缴费状态
@@ -72,7 +77,39 @@ public class PaymentStatusServiceImpl extends ServiceImpl<PaymentStatusMapper, P
      */
     @Override
     public int updatePaymentStatus(PaymentStatus paymentStatus) {
-        return paymentStatusMapper.updatePaymentStatus(paymentStatus);
+        int rows = paymentStatusMapper.updatePaymentStatus(paymentStatus);
+        Long status = paymentStatus.getStatus();
+        if (status==1){
+            Long statusId = paymentStatus.getStatusId();
+            Long projectId = paymentStatusMapper.selectPaymentStatusByStatusId(statusId).getProjectId();
+            boolean buildingPaid=checkIfOneBuildAllPaid(paymentStatus.getDormitoryId(),projectId);
+            if(buildingPaid){
+                PaymentProject paymentProject = new PaymentProject();
+                paymentProject.setProjectProgress(1L);
+                paymentProject.setProjectId(projectId);
+                paymentProjectService.updatePaymentProject(paymentProject);
+            }
+        }
+        return rows;
+    }
+    private boolean checkIfOneBuildAllPaid(String dormitoryId,Long project_id) {
+        boolean flag=true;
+        Dormitory dormitory = dormitoryMapper.selectDormitoryByDorId(dormitoryId);
+        String buildingId = dormitory.getBuildingId();
+        LambdaQueryWrapper<Dormitory> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Dormitory::getBuildingId,buildingId);
+        List<Dormitory> dormitories = dormitoryMapper.selectList(wrapper);
+        for (Dormitory dor : dormitories) {
+            String dorId = dor.getDorId();
+            LambdaQueryWrapper<PaymentStatus> queryWrapper = new LambdaQueryWrapper<>();
+            queryWrapper.eq(PaymentStatus::getStatus,0);
+            queryWrapper.eq(PaymentStatus::getDormitoryId,dorId);
+            queryWrapper.eq(PaymentStatus::getProjectId,project_id);
+            if(paymentStatusMapper.selectOne(queryWrapper)!=null){
+                flag=false;
+            }
+        }
+        return flag;
     }
 
     /**

@@ -11,6 +11,10 @@
                 <div class="select-list">
                     <ul>
                         <li>
+                            <label>宿舍编号：</label>
+                            <input type="text" name="dorId"/>
+                        </li>
+                        <li>
                             <label>宿舍楼：</label>
                             <input type="text" name="buildingId"/>
                         </li>
@@ -18,10 +22,10 @@
                             <label>宿舍长学生id：</label>
                             <input type="text" name="stuId"/>
                         </li>
-                        <li>
-                            <label>宿舍地址：</label>
-                            <input type="text" name="location"/>
-                        </li>
+<!--                        <li>-->
+<!--                            <label>宿舍地址：</label>-->
+<!--                            <input type="text" name="location"/>-->
+<!--                        </li>-->
                         <li>
                             <label>宿舍可容纳人数：</label>
                             <input type="text" name="capacity"/>
@@ -53,9 +57,6 @@
             <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()"
                shiro:hasPermission="dormitoryManager:stuDormitory:remove">
                 <i class="fa fa-remove"></i> 删除
-            </a>
-            <a class="btn btn-danger multiple disabled" onclick="$.operate.fuck()">
-                fuck一波
             </a>
             <a class="btn btn-warning" onclick="$.table.exportExcel()"
                shiro:hasPermission="dormitoryManager:stuDormitory:export">

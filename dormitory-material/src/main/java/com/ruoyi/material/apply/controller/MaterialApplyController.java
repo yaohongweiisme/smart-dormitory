@@ -20,28 +20,30 @@ import java.util.List;
  * 物资申领Controller
  * 
  * @author ruoyi
- * @date 2023-03-28
+ * @date 2023-04-01
  */
 @Controller
-@RequestMapping("/apply/apply")
+@RequestMapping("/material/apply")
 public class MaterialApplyController extends BaseController
 {
-    private String prefix = "apply/apply";
+    private String prefix = "material/apply";
 
     @Autowired
     private IMaterialApplyService materialApplyService;
 
-    @RequiresPermissions("apply:apply:view")
+
+    @RequiresPermissions("material:apply:view")
     @GetMapping()
-    public String apply()
+    public String apply(ModelMap modelMap)
     {
+
         return prefix + "/apply";
     }
 
     /**
      * 查询物资申领列表
      */
-    @RequiresPermissions("apply:apply:list")
+    @RequiresPermissions("material:apply:list")
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(MaterialApply materialApply)
@@ -54,7 +56,7 @@ public class MaterialApplyController extends BaseController
     /**
      * 导出物资申领列表
      */
-    @RequiresPermissions("apply:apply:export")
+    @RequiresPermissions("material:apply:export")
     @Log(title = "物资申领", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
@@ -77,7 +79,7 @@ public class MaterialApplyController extends BaseController
     /**
      * 新增保存物资申领
      */
-    @RequiresPermissions("apply:apply:add")
+    @RequiresPermissions("material:apply:add")
     @Log(title = "物资申领", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
@@ -89,7 +91,7 @@ public class MaterialApplyController extends BaseController
     /**
      * 修改物资申领
      */
-    @RequiresPermissions("apply:apply:edit")
+    @RequiresPermissions("material:apply:edit")
     @GetMapping("/edit/{applicationId}")
     public String edit(@PathVariable("applicationId") Long applicationId, ModelMap mmap)
     {
@@ -101,7 +103,7 @@ public class MaterialApplyController extends BaseController
     /**
      * 修改保存物资申领
      */
-    @RequiresPermissions("apply:apply:edit")
+    @RequiresPermissions("material:apply:edit")
     @Log(title = "物资申领", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
@@ -113,7 +115,7 @@ public class MaterialApplyController extends BaseController
     /**
      * 删除物资申领
      */
-    @RequiresPermissions("apply:apply:remove")
+    @RequiresPermissions("material:apply:remove")
     @Log(title = "物资申领", businessType = BusinessType.DELETE)
     @PostMapping( "/remove")
     @ResponseBody

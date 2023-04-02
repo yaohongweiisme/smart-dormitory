@@ -13,7 +13,7 @@ import com.ruoyi.common.core.text.Convert;
  * 物资库存Service业务层处理
  * 
  * @author ruoyi
- * @date 2023-03-28
+ * @date 2023-04-01
  */
 @Service
 public class MaterialInventoryServiceImpl extends ServiceImpl<MaterialInventoryMapper,MaterialInventory> implements IMaterialInventoryService

@@ -1,15 +1,14 @@
 package com.ruoyi.material.order.service;
 
+import java.util.List;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ruoyi.material.order.domain.PurchaseOrder;
-
-import java.util.List;
 
 /**
  * 物资采购单Service接口
  * 
  * @author ruoyi
- * @date 2023-03-28
+ * @date 2023-04-01
  */
 public interface IPurchaseOrderService extends IService<PurchaseOrder>
 {

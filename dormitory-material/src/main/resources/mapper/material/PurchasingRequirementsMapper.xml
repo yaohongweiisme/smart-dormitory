@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.material.requirements.mapper.PurchasingRequirementsMapper">
+    
+    <resultMap type="PurchasingRequirements" id="PurchasingRequirementsResult">
+        <result property="purchasingRequirementsId"    column="purchasing_requirements_id"    />
+        <result property="materialId"    column="material_id"    />
+        <result property="replenishment"    column="replenishment"    />
+        <result property="buildTime"    column="build_time"    />
+        <result property="buidPerson"    column="buid_person"    />
+    </resultMap>
+
+    <sql id="selectPurchasingRequirementsVo">
+        select purchasing_requirements_id, material_id, replenishment, build_time, buid_person from purchasing_requirements
+    </sql>
+
+    <select id="selectPurchasingRequirementsList" parameterType="PurchasingRequirements" resultMap="PurchasingRequirementsResult">
+        <include refid="selectPurchasingRequirementsVo"/>
+        <where>  
+            <if test="materialId != null "> and material_id = #{materialId}</if>
+            <if test="replenishment != null "> and replenishment = #{replenishment}</if>
+            <if test="buildTime != null "> and build_time = #{buildTime}</if>
+            <if test="buidPerson != null  and buidPerson != ''"> and buid_person = #{buidPerson}</if>
+        </where>
+    </select>
+    
+    <select id="selectPurchasingRequirementsByPurchasingRequirementsId" parameterType="Long" resultMap="PurchasingRequirementsResult">
+        <include refid="selectPurchasingRequirementsVo"/>
+        where purchasing_requirements_id = #{purchasingRequirementsId}
+    </select>
+        
+    <insert id="insertPurchasingRequirements" parameterType="PurchasingRequirements">
+        insert into purchasing_requirements
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="purchasingRequirementsId != null">purchasing_requirements_id,</if>
+            <if test="materialId != null">material_id,</if>
+            <if test="replenishment != null">replenishment,</if>
+            <if test="buildTime != null">build_time,</if>
+            <if test="buidPerson != null and buidPerson != ''">buid_person,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="purchasingRequirementsId != null">#{purchasingRequirementsId},</if>
+            <if test="materialId != null">#{materialId},</if>
+            <if test="replenishment != null">#{replenishment},</if>
+            <if test="buildTime != null">#{buildTime},</if>
+            <if test="buidPerson != null and buidPerson != ''">#{buidPerson},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePurchasingRequirements" parameterType="PurchasingRequirements">
+        update purchasing_requirements
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="materialId != null">material_id = #{materialId},</if>
+            <if test="replenishment != null">replenishment = #{replenishment},</if>
+            <if test="buildTime != null">build_time = #{buildTime},</if>
+            <if test="buidPerson != null and buidPerson != ''">buid_person = #{buidPerson},</if>
+        </trim>
+        where purchasing_requirements_id = #{purchasingRequirementsId}
+    </update>
+
+    <delete id="deletePurchasingRequirementsByPurchasingRequirementsId" parameterType="Long">
+        delete from purchasing_requirements where purchasing_requirements_id = #{purchasingRequirementsId}
+    </delete>
+
+    <delete id="deletePurchasingRequirementsByPurchasingRequirementsIds" parameterType="String">
+        delete from purchasing_requirements where purchasing_requirements_id in 
+        <foreach item="purchasingRequirementsId" collection="array" open="(" separator="," close=")">
+            #{purchasingRequirementsId}
+        </foreach>
+    </delete>
+
+</mapper>

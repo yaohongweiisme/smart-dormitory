@@ -13,7 +13,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 物资申领对象 material_apply
  * 
  * @author ruoyi
- * @date 2023-03-28
+ * @date 2023-04-01
  */
 @TableName("material_apply")
 public class MaterialApply extends BaseEntity

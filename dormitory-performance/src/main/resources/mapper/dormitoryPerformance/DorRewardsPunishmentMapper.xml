@@ -7,19 +7,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <resultMap type="DorRewardsPunishment" id="DorRewardsPunishmentResult">
         <result property="id"    column="id"    />
         <result property="dorId"    column="dor_id"    />
+        <result property="buildingId"    column="building_Id"    />
         <result property="content"    column="content"    />
         <result property="kind"    column="kind"    />
         <result property="state"    column="state"    />
+        <result property="createTime"    column="create_time"    />
     </resultMap>
 
     <sql id="selectDorRewardsPunishmentVo">
-        select id, dor_id, content, kind, state from dor_rewards_punishment
+        select id, dor_id, building_Id, content, kind, state, create_time from dor_rewards_punishment
     </sql>
 
     <select id="selectDorRewardsPunishmentList" parameterType="DorRewardsPunishment" resultMap="DorRewardsPunishmentResult">
         <include refid="selectDorRewardsPunishmentVo"/>
         <where>  
             <if test="dorId != null  and dorId != ''"> and dor_id = #{dorId}</if>
+            <if test="buildingId != null "> and building_Id = #{buildingId}</if>
             <if test="content != null  and content != ''"> and content = #{content}</if>
             <if test="kind != null  and kind != ''"> and kind = #{kind}</if>
             <if test="state != null "> and state = #{state}</if>
@@ -35,15 +38,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into dor_rewards_punishment
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="dorId != null">dor_id,</if>
+            <if test="buildingId != null">building_Id,</if>
             <if test="content != null">content,</if>
             <if test="kind != null">kind,</if>
             <if test="state != null">state,</if>
+            <if test="createTime != null">create_time,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="dorId != null">#{dorId},</if>
+            <if test="buildingId != null">#{buildingId},</if>
             <if test="content != null">#{content},</if>
             <if test="kind != null">#{kind},</if>
             <if test="state != null">#{state},</if>
+            <if test="createTime != null">#{createTime},</if>
          </trim>
     </insert>
 
@@ -51,9 +58,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update dor_rewards_punishment
         <trim prefix="SET" suffixOverrides=",">
             <if test="dorId != null">dor_id = #{dorId},</if>
+            <if test="buildingId != null">building_Id = #{buildingId},</if>
             <if test="content != null">content = #{content},</if>
             <if test="kind != null">kind = #{kind},</if>
             <if test="state != null">state = #{state},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
         </trim>
         where id = #{id}
     </update>

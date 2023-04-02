@@ -23,18 +23,18 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * 物资采购单Controller
  * 
  * @author ruoyi
- * @date 2023-03-28
+ * @date 2023-04-01
  */
 @Controller
-@RequestMapping("/order/order")
+@RequestMapping("/material/order")
 public class PurchaseOrderController extends BaseController
 {
-    private String prefix = "order/order";
+    private String prefix = "material/order";
 
     @Autowired
     private IPurchaseOrderService purchaseOrderService;
 
-    @RequiresPermissions("order:order:view")
+    @RequiresPermissions("material:order:view")
     @GetMapping()
     public String order()
     {
@@ -44,7 +44,7 @@ public class PurchaseOrderController extends BaseController
     /**
      * 查询物资采购单列表
      */
-    @RequiresPermissions("order:order:list")
+    @RequiresPermissions("material:order:list")
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(PurchaseOrder purchaseOrder)
@@ -57,7 +57,7 @@ public class PurchaseOrderController extends BaseController
     /**
      * 导出物资采购单列表
      */
-    @RequiresPermissions("order:order:export")
+    @RequiresPermissions("material:order:export")
     @Log(title = "物资采购单", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
@@ -80,7 +80,7 @@ public class PurchaseOrderController extends BaseController
     /**
      * 新增保存物资采购单
      */
-    @RequiresPermissions("order:order:add")
+    @RequiresPermissions("material:order:add")
     @Log(title = "物资采购单", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
@@ -92,7 +92,7 @@ public class PurchaseOrderController extends BaseController
     /**
      * 修改物资采购单
      */
-    @RequiresPermissions("order:order:edit")
+    @RequiresPermissions("material:order:edit")
     @GetMapping("/edit/{purchaseOrderId}")
     public String edit(@PathVariable("purchaseOrderId") Long purchaseOrderId, ModelMap mmap)
     {
@@ -104,7 +104,7 @@ public class PurchaseOrderController extends BaseController
     /**
      * 修改保存物资采购单
      */
-    @RequiresPermissions("order:order:edit")
+    @RequiresPermissions("material:order:edit")
     @Log(title = "物资采购单", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
@@ -116,7 +116,7 @@ public class PurchaseOrderController extends BaseController
     /**
      * 删除物资采购单
      */
-    @RequiresPermissions("order:order:remove")
+    @RequiresPermissions("material:order:remove")
     @Log(title = "物资采购单", businessType = BusinessType.DELETE)
     @PostMapping( "/remove")
     @ResponseBody

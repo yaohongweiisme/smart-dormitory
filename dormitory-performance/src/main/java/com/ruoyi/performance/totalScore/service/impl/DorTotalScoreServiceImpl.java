@@ -14,7 +14,7 @@ import java.util.List;
  * 宿舍总分数Service业务层处理
  * 
  * @author ruoyi
- * @date 2023-03-11
+ * @date 2023-03-31
  */
 @Service
 public class DorTotalScoreServiceImpl extends ServiceImpl<DorTotalScoreMapper,DorTotalScore> implements IDorTotalScoreService

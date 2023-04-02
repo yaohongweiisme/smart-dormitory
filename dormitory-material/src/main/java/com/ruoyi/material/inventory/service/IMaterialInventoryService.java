@@ -1,15 +1,14 @@
 package com.ruoyi.material.inventory.service;
 
+import java.util.List;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ruoyi.material.inventory.domain.MaterialInventory;
-
-import java.util.List;
 
 /**
  * 物资库存Service接口
  * 
  * @author ruoyi
- * @date 2023-03-28
+ * @date 2023-04-01
  */
 public interface IMaterialInventoryService extends IService<MaterialInventory>
 {

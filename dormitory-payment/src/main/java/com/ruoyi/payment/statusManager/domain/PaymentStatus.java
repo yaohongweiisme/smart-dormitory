@@ -1,13 +1,14 @@
 package com.ruoyi.payment.statusManager.domain;
 
-import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import java.util.Date;
 
 /**
  * 缴费状态对象 payment_status
@@ -37,6 +38,12 @@ public class PaymentStatus extends BaseEntity
     @TableField("status")
     @Excel(name = "缴费状态", readConverterExp = "0==未缴费，1=缴费完成")
     private Long status;
+
+    @Excel(name = "创建时间")
+    @TableField("create_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
+
 
     /** 完成缴费时间 */
     @TableField("finish_time")
@@ -80,6 +87,17 @@ public class PaymentStatus extends BaseEntity
     {
         return status;
     }
+
+    @Override
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    @Override
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
     public void setFinishTime(Date finishTime) 
     {
         this.finishTime = finishTime;
@@ -89,6 +107,8 @@ public class PaymentStatus extends BaseEntity
     {
         return finishTime;
     }
+
+
 
     @Override
     public String toString() {

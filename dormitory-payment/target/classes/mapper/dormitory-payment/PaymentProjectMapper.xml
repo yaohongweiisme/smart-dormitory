@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where project_id = #{projectId}
     </select>
         
-    <insert id="insertPaymentProject" parameterType="PaymentProject">
+    <insert id="insertPaymentProject" parameterType="PaymentProject" useGeneratedKeys = "true" keyProperty="projectId">
         insert into payment_project
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="projectId != null">project_id,</if>
