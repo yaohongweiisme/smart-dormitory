@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <resultMap type="MaterialApply" id="MaterialApplyResult">
         <result property="applicationId"    column="application_id"    />
-        <result property="materialName"    column="material_name"    />
-        <result property="applyPerson"    column="apply_person"    />
+        <result property="materialId"    column="material_id"    />
+        <result property="applyDorId"    column="apply_dor_id"    />
         <result property="number"    column="number"    />
         <result property="applyTime"    column="apply_time"    />
         <result property="status"    column="status"    />
@@ -15,14 +15,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectMaterialApplyVo">
-        select application_id, material_name, apply_person, number, apply_time, status, handle_people from material_apply
+        select application_id, material_id, apply_dor_id, number, apply_time, status, handle_people from material_apply
     </sql>
 
     <select id="selectMaterialApplyList" parameterType="MaterialApply" resultMap="MaterialApplyResult">
         <include refid="selectMaterialApplyVo"/>
         <where>  
-            <if test="materialName != null  and materialName != ''"> and material_name like concat('%', #{materialName}, '%')</if>
-            <if test="applyPerson != null  and applyPerson != ''"> and apply_person = #{applyPerson}</if>
+            <if test="materialId != null "> and material_id = #{materialId}</if>
+            <if test="applyDorId != null  and applyDorId != ''"> and apply_dor_id = #{applyDorId}</if>
             <if test="number != null "> and number = #{number}</if>
             <if test="applyTime != null "> and apply_time = #{applyTime}</if>
             <if test="status != null "> and status = #{status}</if>
@@ -39,8 +39,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into material_apply
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="applicationId != null">application_id,</if>
-            <if test="materialName != null">material_name,</if>
-            <if test="applyPerson != null">apply_person,</if>
+            <if test="materialId != null">material_id,</if>
+            <if test="applyDorId != null">apply_dor_id,</if>
             <if test="number != null">number,</if>
             <if test="applyTime != null">apply_time,</if>
             <if test="status != null">status,</if>
@@ -48,8 +48,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="applicationId != null">#{applicationId},</if>
-            <if test="materialName != null">#{materialName},</if>
-            <if test="applyPerson != null">#{applyPerson},</if>
+            <if test="materialId != null">#{materialId},</if>
+            <if test="applyDorId != null">#{applyDorId},</if>
             <if test="number != null">#{number},</if>
             <if test="applyTime != null">#{applyTime},</if>
             <if test="status != null">#{status},</if>
@@ -60,8 +60,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="updateMaterialApply" parameterType="MaterialApply">
         update material_apply
         <trim prefix="SET" suffixOverrides=",">
-            <if test="materialName != null">material_name = #{materialName},</if>
-            <if test="applyPerson != null">apply_person = #{applyPerson},</if>
+            <if test="materialId != null">material_id = #{materialId},</if>
+            <if test="applyDorId != null">apply_dor_id = #{applyDorId},</if>
             <if test="number != null">number = #{number},</if>
             <if test="applyTime != null">apply_time = #{applyTime},</if>
             <if test="status != null">status = #{status},</if>

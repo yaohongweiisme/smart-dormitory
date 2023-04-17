@@ -11,12 +11,12 @@
                     <div class="select-list">
                         <ul>
                             <li>
-                                <label>申领物品名字：</label>
-                                <input type="text" name="materialName"/>
+                                <label>申领物品id：</label>
+                                <input type="text" name="materialId"/>
                             </li>
                             <li>
-                                <label>申领人id：</label>
-                                <input type="text" name="applyPerson"/>
+                                <label>申领宿舍号：</label>
+                                <input type="text" name="applyDorId"/>
                             </li>
                             <li>
                                 <label>申领数量：</label>
@@ -81,12 +81,21 @@
                     visible: false
                 },
                 {
-                    field: 'materialName',
-                    title: '申领物品名字'
+                    field: 'materialId',
+                    title: '申领物品',
+                    formatter: function(value) {
+                        let inventories=[[${inventories}]];
+                        // console.log('物品一共有：',inventories);
+                        for (let material of inventories) {
+                            // console.log("单个值为"+JSON.stringify(material));
+                            if(material.materialId===value)
+                                return material.name;
+                        }
+                    }
                 },
                 {
-                    field: 'applyPerson',
-                    title: '申领人id'
+                    field: 'applyDorId',
+                    title: '申领宿舍号'
                 },
                 {
                     field: 'number',
@@ -96,13 +105,26 @@
                     field: 'applyTime',
                     title: '申领时间'
                 },
-                {
-                    field: 'status',
-                    title: '申领状态(0申领中，1已处理)'
-                },
+                    {
+                        field: 'status',
+                        title: '申领状态',
+                        formatter: function(value) {
+                            return value==0?'申领中':'已处理'
+                        }
+                    },
                 {
                     field: 'handlePeople',
-                    title: '处理人id'
+                    title: '处理人',
+                    formatter: function(value) {
+                        let buildingStaffs=[[${buildingStaffs}]];
+                        // console.log('物业人员一共有：',buildingStaffs);
+                        for (let buildingStaff of buildingStaffs) {
+                            // console.log("单个值为"+JSON.stringify(buildingStaff));
+                            if(buildingStaff.id===value)
+                                return buildingStaff.name;
+                        }
+                        return '暂无人物业人员跟进'
+                    }
                 },
                 {
                     title: '操作',

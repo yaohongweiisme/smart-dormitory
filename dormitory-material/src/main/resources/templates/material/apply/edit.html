@@ -9,15 +9,15 @@
         <form class="form-horizontal m" id="form-apply-edit" th:object="${materialApply}">
             <input name="applicationId" th:field="*{applicationId}" type="hidden">
             <div class="form-group">    
-                <label class="col-sm-3 control-label">申领物品名字：</label>
+                <label class="col-sm-3 control-label">申领物品：</label>
                 <div class="col-sm-8">
-                    <input name="materialName" th:field="*{materialName}" class="form-control" type="text">
+                    <input  class="form-control" id="materialName" disabled="disabled">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">申领人id：</label>
+                <label class="col-sm-3 control-label">申领宿舍号：</label>
                 <div class="col-sm-8">
-                    <input name="applyPerson" th:field="*{applyPerson}" class="form-control" type="text">
+                    <input name="applyDorId" th:field="*{applyDorId}" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
@@ -35,10 +35,21 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">处理人id：</label>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">申领状态：</label>
                 <div class="col-sm-8">
-                    <input name="handlePeople" th:field="*{handlePeople}" class="form-control" type="text">
+                    <select th:field="${materialApply.status}" name="status" th:value="${materialApply.status}" >
+                        <option  th:selected="${materialApply.status=='0'}" value="0">申领中</option>
+                        <option th:selected="${materialApply.status=='1'}"  value="1">已处理</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">处理人：</label>
+                <div class="col-sm-8">
+                    <select name="handlePeople">
+                        <option th:each="buildingStaff:${buildingStaffs}" th:value="${buildingStaff.id}" th:text="${buildingStaff.name}"></option>
+                    </select>
                 </div>
             </div>
         </form>
@@ -62,6 +73,9 @@
             minView: "month",
             autoclose: true
         });
+
+        document.getElementById("materialName").value = [[${materialName}]];
+
     </script>
 </body>
 </html>

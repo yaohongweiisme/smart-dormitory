@@ -15,16 +15,28 @@
                                 <input type="text" name="dorId"/>
                             </li>
                             <li>
-                                <label>宿舍楼id：</label>
-                                <input type="text" name="buildingId"/>
+                                <label>宿舍楼：</label>
+<!--                                <input type="text" name="buildingId"/>-->
+                                <select name="buildingId">
+                                    <option value="">选择宿舍楼</option>
+                                    <option th:each="building:${buildings}" th:value="${building.buildingId}" th:text="${building.buildingName}"></option>
+                                </select>
                             </li>
                             <li>
                                 <label>性质：</label>
-                                <input type="text" name="kind"/>
+                                <select name="kind">
+                                    <option value="">选择性质</option>
+                                    <option value="0">惩罚</option>
+                                    <option value="1">奖励</option>
+                                </select>
                             </li>
                             <li>
-                                <label>1表示完成，0表示进行中：</label>
-                                <input type="text" name="state"/>
+                                <label>状态：</label>
+                                <select name="state">
+                                    <option value="">选择状态</option>
+                                    <option value="0">进行中</option>
+                                    <option value="1">已完成</option>
+                                </select>
                             </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
@@ -82,7 +94,16 @@
                 },
                 {
                     field: 'buildingId',
-                    title: '宿舍楼id'
+                    title: '宿舍楼',
+                    formatter(value){
+                        let buildings=[[${buildings}]];
+                        console.log("宿舍楼对象列表:",buildings);
+                        for (let i = 0; i < buildings.length; i++) {
+                            if(value==buildings[i].buildingId){
+                                return buildings[i].buildingName;
+                            }
+                        }
+                    }
                 },
                 {
                     field: 'content',
@@ -90,11 +111,17 @@
                 },
                 {
                     field: 'kind',
-                    title: '性质'
+                    title: '性质',
+                    formatter(value){
+                       return value==0?'惩罚':'奖励'
+                    }
                 },
                 {
                     field: 'state',
-                    title: '1表示完成，0表示进行中'
+                    title: '状态',
+                    formatter(value){
+                        return value==0?'进行中':'已完成'
+                    }
                 },
                 {
                     title: '操作',

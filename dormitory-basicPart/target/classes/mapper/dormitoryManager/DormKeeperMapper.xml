@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <where>  
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
             <if test="managerDor != null  and managerDor != ''"> and manager_dor = #{managerDor}</if>
-            <if test="location != null  and location != ''"> and location = #{location}</if>
+            <if test="location != null  and location != ''"> and location like concat('%', #{location}, '%')</if>
             <if test="phoneNumber != null and phoneNumber != ''"> and phoneNumber = #{phoneNumber}</if>
         </where>
     </select>

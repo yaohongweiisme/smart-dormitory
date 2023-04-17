@@ -1,8 +1,10 @@
 package com.ruoyi.performance.punishment.service;
 
-import java.util.List;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ruoyi.dormitory.buildingInfo.domain.BuildingInfo;
 import com.ruoyi.performance.punishment.domain.DorRewardsPunishment;
+
+import java.util.List;
 
 /**
  * 宿舍奖惩活动Service接口
@@ -19,6 +21,8 @@ public interface IDorRewardsPunishmentService extends IService<DorRewardsPunishm
      * @return 宿舍奖惩活动
      */
     public DorRewardsPunishment selectDorRewardsPunishmentById(Long id);
+
+    public List<BuildingInfo> getAllBuilding();
 
     /**
      * 查询宿舍奖惩活动列表

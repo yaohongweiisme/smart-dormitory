@@ -90,7 +90,18 @@
                 },
                 {
                     field: 'totalSorceId',
-                    title: '对应总分数表编号'
+                    title: '对应总分数表编号',
+                    formatter:function(value){
+                        let dorTotalScores=[[${dorTotalScores}]];
+                        console.log("宿舍总分数列表是多少："+dorTotalScores);
+                        console.log("value是:"+value);
+                        for (let dorTotalScore of dorTotalScores) {
+                            console.log("单个值为"+JSON.stringify(dorTotalScore));
+                            if(dorTotalScore.id===value)
+                                return dorTotalScore.title;
+                        }
+                    }
+
                 },
                 {
                     field: 'scoreChangeValue',

@@ -17,7 +17,7 @@
             <label class="col-sm-3 control-label">宿舍编号：</label>
             <div class="col-sm-8">
                 <input id="dorId" name="dormitoryId" class="form-control" type="text" onchange="
-                    HandleDorIdChange()">
+                    handleDorIdChange()">
             </div>
         </div>
         <div class="form-group">
@@ -75,7 +75,7 @@
         autoclose: true
     });
 
-    function HandleDorIdChange() {
+    function handleDorIdChange() {
         var dorId = $("#dorId").val();
         console.log('你改变了宿舍id值,现id值为:', dorId);
         $.ajax({

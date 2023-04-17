@@ -1,14 +1,15 @@
 package com.ruoyi.material.apply.service;
 
-import java.util.List;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ruoyi.material.apply.domain.MaterialApply;
+
+import java.util.List;
 
 /**
  * 物资申领Service接口
  * 
  * @author ruoyi
- * @date 2023-04-01
+ * @date 2023-04-14
  */
 public interface IMaterialApplyService extends IService<MaterialApply>
 {

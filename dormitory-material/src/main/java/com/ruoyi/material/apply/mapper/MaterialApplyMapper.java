@@ -1,14 +1,15 @@
 package com.ruoyi.material.apply.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import java.util.List;
 import com.ruoyi.material.apply.domain.MaterialApply;
+
+import java.util.List;
 
 /**
  * 物资申领Mapper接口
  * 
  * @author ruoyi
- * @date 2023-04-01
+ * @date 2023-04-14
  */
 public interface MaterialApplyMapper extends BaseMapper<MaterialApply>
 {

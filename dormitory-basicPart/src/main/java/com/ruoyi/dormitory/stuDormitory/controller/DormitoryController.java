@@ -1,23 +1,23 @@
 package com.ruoyi.dormitory.stuDormitory.controller;
 
-import java.util.List;
+import com.ruoyi.common.annotation.Log;
+import com.ruoyi.common.core.controller.BaseController;
+import com.ruoyi.common.core.domain.AjaxResult;
+import com.ruoyi.common.core.page.TableDataInfo;
+import com.ruoyi.common.enums.BusinessType;
+import com.ruoyi.common.utils.poi.ExcelUtil;
+import com.ruoyi.dormitory.buildingInfo.service.IBuildingInfoService;
+import com.ruoyi.dormitory.stuDormitory.domain.Dormitory;
+import com.ruoyi.dormitory.stuDormitory.service.IDormitoryService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import com.ruoyi.common.annotation.Log;
-import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.dormitory.stuDormitory.domain.Dormitory;
-import com.ruoyi.dormitory.stuDormitory.service.IDormitoryService;
-import com.ruoyi.common.core.controller.BaseController;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.utils.poi.ExcelUtil;
-import com.ruoyi.common.core.page.TableDataInfo;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 学生宿舍信息Controller
@@ -33,12 +33,27 @@ public class DormitoryController extends BaseController
 
     @Autowired
     private IDormitoryService dormitoryService;
+    @Autowired
+    private IBuildingInfoService buildingInfoService;
 
     @RequiresPermissions("dormitoryManager:stuDormitory:view")
     @GetMapping()
-    public String stuDormitory()
+    public String stuDormitory(ModelMap map)
     {
+        map.put("buildings",buildingInfoService.selectBuildingInfoList(null));
         return prefix + "/stuDormitory";
+    }
+
+    //通过宿舍楼号寻找旗下宿舍号
+    @GetMapping("/getDorIdByBuildId")
+    @ResponseBody
+    public Map<String, Object> getDorByBuildId(String buildingId) {
+
+        List<String> dorIds=dormitoryService.getDorByBuildId(buildingId);
+        Map<String, Object> stringObjectHashMap = new HashMap<>();
+        stringObjectHashMap.put("dorIds",dorIds);
+        stringObjectHashMap.put("code",dorIds==null?500:200);
+        return stringObjectHashMap;
     }
 
     /**
@@ -73,8 +88,9 @@ public class DormitoryController extends BaseController
      * 新增学生宿舍信息
      */
     @GetMapping("/add")
-    public String add()
+    public String add(ModelMap map)
     {
+        map.put("buildings",buildingInfoService.selectBuildingInfoList(null));
         return prefix + "/add";
     }
 
@@ -99,6 +115,7 @@ public class DormitoryController extends BaseController
     {
         Dormitory dormitory = dormitoryService.selectDormitoryByDorId(dorId);
         mmap.put("dormitory", dormitory);
+        mmap.put("buildings",buildingInfoService.selectBuildingInfoList(null));
         return prefix + "/edit";
     }
 

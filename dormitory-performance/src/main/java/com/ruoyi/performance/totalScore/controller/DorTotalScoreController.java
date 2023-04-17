@@ -14,7 +14,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 宿舍总分数Controller
@@ -37,6 +39,20 @@ public class DorTotalScoreController extends BaseController
     {
         return prefix + "/totalScore";
     }
+
+
+    //根据宿舍号和宿舍楼号寻找总分数单
+    @GetMapping("/getTotalScoreByDorId")
+    @ResponseBody
+    public Map<String, Object> getTotalScoreByDorId(String dorId) {
+
+        List<DorTotalScore> totalScores=dorTotalScoreService.getTotalScoreByDorId(dorId);
+        Map<String, Object> stringObjectHashMap = new HashMap<>();
+        stringObjectHashMap.put("totalScores",totalScores);
+        stringObjectHashMap.put("code",totalScores==null?500:200);
+        return stringObjectHashMap;
+    }
+
 
     /**
      * 查询宿舍总分数列表

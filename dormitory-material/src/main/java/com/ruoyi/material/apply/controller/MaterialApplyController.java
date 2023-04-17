@@ -1,13 +1,18 @@
 package com.ruoyi.material.apply.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.core.page.TableDataInfo;
 import com.ruoyi.common.enums.BusinessType;
 import com.ruoyi.common.utils.poi.ExcelUtil;
+import com.ruoyi.dormitoryRepair.buildingStaff.domain.BuildingStaff;
+import com.ruoyi.dormitoryRepair.buildingStaff.service.IBuildingStaffService;
 import com.ruoyi.material.apply.domain.MaterialApply;
 import com.ruoyi.material.apply.service.IMaterialApplyService;
+import com.ruoyi.material.inventory.domain.MaterialInventory;
+import com.ruoyi.material.inventory.service.IMaterialInventoryService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +25,7 @@ import java.util.List;
  * 物资申领Controller
  * 
  * @author ruoyi
- * @date 2023-04-01
+ * @date 2023-04-14
  */
 @Controller
 @RequestMapping("/material/apply")
@@ -30,13 +35,19 @@ public class MaterialApplyController extends BaseController
 
     @Autowired
     private IMaterialApplyService materialApplyService;
-
+    @Autowired
+    private IMaterialInventoryService inventoryService;
+    @Autowired
+    private IBuildingStaffService buildingStaffService;
 
     @RequiresPermissions("material:apply:view")
     @GetMapping()
-    public String apply(ModelMap modelMap)
+    public String apply(ModelMap map)
     {
-
+        List<BuildingStaff> buildingStaffs = buildingStaffService.selectBuildingStaffList(null);
+        map.put("buildingStaffs",buildingStaffs);
+        List<MaterialInventory> inventories = inventoryService.selectMaterialInventoryList(null);
+        map.put("inventories",inventories);
         return prefix + "/apply";
     }
 
@@ -71,8 +82,10 @@ public class MaterialApplyController extends BaseController
      * 新增物资申领
      */
     @GetMapping("/add")
-    public String add()
+    public String add(ModelMap map)
     {
+        List<MaterialInventory> inventories = inventoryService.selectMaterialInventoryList(null);
+        map.put("inventories",inventories);
         return prefix + "/add";
     }
 
@@ -93,10 +106,14 @@ public class MaterialApplyController extends BaseController
      */
     @RequiresPermissions("material:apply:edit")
     @GetMapping("/edit/{applicationId}")
-    public String edit(@PathVariable("applicationId") Long applicationId, ModelMap mmap)
+    public String edit(@PathVariable("applicationId") Long applicationId, ModelMap map)
     {
         MaterialApply materialApply = materialApplyService.selectMaterialApplyByApplicationId(applicationId);
-        mmap.put("materialApply", materialApply);
+        map.put("materialApply", materialApply);
+        List<BuildingStaff> buildingStaffs = buildingStaffService.selectBuildingStaffList(null);
+        map.put("buildingStaffs",buildingStaffs);
+        MaterialInventory material = inventoryService.getOne(new LambdaQueryWrapper<MaterialInventory>().eq(MaterialInventory::getMaterialId, materialApply.getMaterialId()));
+        map.put("materialName",material.getName());
         return prefix + "/edit";
     }
 

@@ -1,19 +1,20 @@
 package com.ruoyi.material.apply.domain;
 
-import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import java.util.Date;
 
 /**
  * 物资申领对象 material_apply
  * 
  * @author ruoyi
- * @date 2023-04-01
+ * @date 2023-04-14
  */
 @TableName("material_apply")
 public class MaterialApply extends BaseEntity
@@ -23,15 +24,15 @@ public class MaterialApply extends BaseEntity
     /** 申领表id */
     private Long applicationId;
 
-    /** 申领物品名字 */
-    @TableField("material_name")
-    @Excel(name = "申领物品名字")
-    private String materialName;
+    /** 申领物品id */
+    @TableField("material_id")
+    @Excel(name = "申领物品id")
+    private Long materialId;
 
-    /** 申领人id（学生） */
-    @TableField("apply_person")
-    @Excel(name = "申领人id", readConverterExp = "学=生")
-    private String applyPerson;
+    /** 申领宿舍号 */
+    @TableField("apply_dor_id")
+    @Excel(name = "申领宿舍号")
+    private String applyDorId;
 
     /** 申领数量 */
     @TableField("number")
@@ -63,23 +64,23 @@ public class MaterialApply extends BaseEntity
     {
         return applicationId;
     }
-    public void setMaterialName(String materialName) 
+    public void setMaterialId(Long materialId) 
     {
-        this.materialName = materialName;
+        this.materialId = materialId;
     }
 
-    public String getMaterialName() 
+    public Long getMaterialId() 
     {
-        return materialName;
+        return materialId;
     }
-    public void setApplyPerson(String applyPerson) 
+    public void setApplyDorId(String applyDorId) 
     {
-        this.applyPerson = applyPerson;
+        this.applyDorId = applyDorId;
     }
 
-    public String getApplyPerson() 
+    public String getApplyDorId() 
     {
-        return applyPerson;
+        return applyDorId;
     }
     public void setNumber(Long number) 
     {
@@ -122,8 +123,8 @@ public class MaterialApply extends BaseEntity
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("applicationId", getApplicationId())
-            .append("materialName", getMaterialName())
-            .append("applyPerson", getApplyPerson())
+            .append("materialId", getMaterialId())
+            .append("applyDorId", getApplyDorId())
             .append("number", getNumber())
             .append("applyTime", getApplyTime())
             .append("status", getStatus())

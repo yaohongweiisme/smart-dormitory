@@ -1,20 +1,20 @@
 package com.ruoyi.dormitory.stuDormitory.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ruoyi.common.core.text.Convert;
+import com.ruoyi.dormitory.buildingInfo.mapper.BuildingInfoMapper;
+import com.ruoyi.dormitory.ocpRelationship.domain.OccupancyRelationship;
+import com.ruoyi.dormitory.ocpRelationship.mapper.OccupancyRelationshipMapper;
+import com.ruoyi.dormitory.stuDormitory.domain.Dormitory;
+import com.ruoyi.dormitory.stuDormitory.mapper.DormitoryMapper;
+import com.ruoyi.dormitory.stuDormitory.service.IDormitoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
-import com.ruoyi.dormitory.ocpRelationship.domain.OccupancyRelationship;
-import com.ruoyi.dormitory.ocpRelationship.mapper.OccupancyRelationshipMapper;
-import com.ruoyi.dormitory.ocpRelationship.service.IOccupancyRelationshipService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import com.ruoyi.dormitory.stuDormitory.mapper.DormitoryMapper;
-import com.ruoyi.dormitory.stuDormitory.domain.Dormitory;
-import com.ruoyi.dormitory.stuDormitory.service.IDormitoryService;
-import com.ruoyi.common.core.text.Convert;
 
 /**
  * 学生宿舍信息Service业务层处理
@@ -23,13 +23,16 @@ import com.ruoyi.common.core.text.Convert;
  * @date 2023-01-08
  */
 @Service
-public class DormitoryServiceImpl implements IDormitoryService 
+public class DormitoryServiceImpl extends ServiceImpl<DormitoryMapper,Dormitory> implements IDormitoryService
 {
     @Autowired
     private DormitoryMapper dormitoryMapper;
 
     @Autowired
     private OccupancyRelationshipMapper occupancyRelationshipMapper;
+
+    @Autowired
+    private BuildingInfoMapper buildingInfoMapper;
 
     /**
      * 查询学生宿舍信息
@@ -129,5 +132,13 @@ public class DormitoryServiceImpl implements IDormitoryService
             availableBedNumbers.remove(occupancyRelationship.getBedNumber());
         }
         return availableBedNumbers;
+    }
+
+    @Override
+    public List<String> getDorByBuildId(String buildingId) {
+        LambdaQueryWrapper<Dormitory> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Dormitory::getBuildingId,buildingId);
+        List<Dormitory> dormitories = baseMapper.selectList(wrapper);
+        return dormitories.stream().map(Dormitory::getDorId).collect(Collectors.toList());
     }
 }

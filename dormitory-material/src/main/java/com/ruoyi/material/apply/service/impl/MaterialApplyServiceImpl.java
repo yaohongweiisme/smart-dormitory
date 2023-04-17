@@ -1,25 +1,31 @@
 package com.ruoyi.material.apply.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import java.util.List;
+import com.ruoyi.common.core.text.Convert;
+import com.ruoyi.material.apply.domain.MaterialApply;
+import com.ruoyi.material.apply.mapper.MaterialApplyMapper;
+import com.ruoyi.material.apply.service.IMaterialApplyService;
+import com.ruoyi.material.inventory.domain.MaterialInventory;
+import com.ruoyi.material.inventory.service.IMaterialInventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.material.apply.mapper.MaterialApplyMapper;
-import com.ruoyi.material.apply.domain.MaterialApply;
-import com.ruoyi.material.apply.service.IMaterialApplyService;
-import com.ruoyi.common.core.text.Convert;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * 物资申领Service业务层处理
  * 
  * @author ruoyi
- * @date 2023-04-01
+ * @date 2023-04-14
  */
 @Service
 public class MaterialApplyServiceImpl extends ServiceImpl<MaterialApplyMapper,MaterialApply> implements IMaterialApplyService
 {
     @Autowired
     private MaterialApplyMapper materialApplyMapper;
+    @Autowired
+    private IMaterialInventoryService inventoryService;
 
     /**
      * 查询物资申领
@@ -63,10 +69,22 @@ public class MaterialApplyServiceImpl extends ServiceImpl<MaterialApplyMapper,Ma
      * @param materialApply 物资申领
      * @return 结果
      */
+    @Transactional
     @Override
     public int updateMaterialApply(MaterialApply materialApply)
     {
-        return materialApplyMapper.updateMaterialApply(materialApply);
+        if(materialApply.getStatus()==1){
+            Long materialId = selectMaterialApplyByApplicationId(materialApply.getApplicationId()).getMaterialId();
+            Long number = materialApply.getNumber();
+            Long oldInventory = inventoryService.selectMaterialInventoryByMaterialId(materialId).getNumber();
+            Long newInventory=oldInventory-number;
+            MaterialInventory inventory = new MaterialInventory();
+            inventory.setMaterialId(materialId);
+            inventory.setNumber(newInventory);
+            inventoryService.updateMaterialInventory(inventory);
+        }
+            return materialApplyMapper.updateMaterialApply(materialApply);
+
     }
 
     /**

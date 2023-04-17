@@ -15,9 +15,15 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">宿舍楼id：</label>
+                <label class="col-sm-3 control-label">宿舍楼：</label>
                 <div class="col-sm-8">
-                    <input name="buildingId" th:field="*{buildingId}" class="form-control" type="text">
+<!--                    <input name="buildingId" th:field="*{buildingId}" class="form-control" type="text">-->
+                    <select disabled="disabled">
+                        <option  th:each="building:${buildings}"
+                                th:if="${building.buildingId} == ${dorRewardsPunishment.buildingId}"
+                                th:text="${building.buildingName}"
+                                >
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
@@ -30,13 +36,21 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">性质：</label>
                 <div class="col-sm-8">
-                    <input name="kind" th:field="*{kind}" class="form-control" type="text">
+<!--                    <input name="kind" th:field="*{kind}" class="form-control" type="text">-->
+                    <select th:field="${dorRewardsPunishment.kind}"  th:value="${dorRewardsPunishment.kind}" >
+                        <option  th:selected="${dorRewardsPunishment.kind}" value=0>惩罚</option>
+                        <option th:selected="${dorRewardsPunishment.kind}"  value=1>奖励</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">1表示完成，0表示进行中：</label>
+                <label class="col-sm-3 control-label">状态：</label>
                 <div class="col-sm-8">
-                    <input name="state" th:field="*{state}" class="form-control" type="text">
+<!--                    <input name="state" th:field="*{state}" class="form-control" type="text">-->
+                    <select th:field="${dorRewardsPunishment.state}"  th:value="${dorRewardsPunishment.state}" >
+                        <option  th:selected="${dorRewardsPunishment.state}" value=0>进行中</option>
+                        <option th:selected="${dorRewardsPunishment.state}"  value=1>已完成</option>
+                    </select>
                 </div>
             </div>
         </form>

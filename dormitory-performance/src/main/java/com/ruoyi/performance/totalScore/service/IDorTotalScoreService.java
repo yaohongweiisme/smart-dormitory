@@ -60,4 +60,6 @@ public interface IDorTotalScoreService extends IService<DorTotalScore>
      * @return 结果
      */
     public int deleteDorTotalScoreById(Long id);
+
+    List<DorTotalScore> getTotalScoreByDorId(String dorId);
 }

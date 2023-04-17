@@ -1,5 +1,6 @@
 package com.ruoyi.performance.totalScore.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.performance.totalScore.domain.DorTotalScore;
@@ -92,5 +93,12 @@ public class DorTotalScoreServiceImpl extends ServiceImpl<DorTotalScoreMapper,Do
     public int deleteDorTotalScoreById(Long id)
     {
         return dorTotalScoreMapper.deleteDorTotalScoreById(id);
+    }
+
+    @Override
+    public List<DorTotalScore> getTotalScoreByDorId(String dorId) {
+        LambdaQueryWrapper<DorTotalScore> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(DorTotalScore::getDorId,dorId);
+        return list(wrapper);
     }
 }

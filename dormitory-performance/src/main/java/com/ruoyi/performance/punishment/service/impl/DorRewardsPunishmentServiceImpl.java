@@ -1,14 +1,17 @@
 package com.ruoyi.performance.punishment.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import java.util.List;
+import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.dormitory.buildingInfo.domain.BuildingInfo;
+import com.ruoyi.dormitory.buildingInfo.service.IBuildingInfoService;
+import com.ruoyi.performance.punishment.domain.DorRewardsPunishment;
+import com.ruoyi.performance.punishment.mapper.DorRewardsPunishmentMapper;
+import com.ruoyi.performance.punishment.service.IDorRewardsPunishmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.performance.punishment.mapper.DorRewardsPunishmentMapper;
-import com.ruoyi.performance.punishment.domain.DorRewardsPunishment;
-import com.ruoyi.performance.punishment.service.IDorRewardsPunishmentService;
-import com.ruoyi.common.core.text.Convert;
+
+import java.util.List;
 
 /**
  * 宿舍奖惩活动Service业务层处理
@@ -21,6 +24,8 @@ public class DorRewardsPunishmentServiceImpl extends ServiceImpl<DorRewardsPunis
 {
     @Autowired
     private DorRewardsPunishmentMapper dorRewardsPunishmentMapper;
+    @Autowired
+    private IBuildingInfoService buildingInfoService;
 
     /**
      * 查询宿舍奖惩活动
@@ -32,6 +37,11 @@ public class DorRewardsPunishmentServiceImpl extends ServiceImpl<DorRewardsPunis
     public DorRewardsPunishment selectDorRewardsPunishmentById(Long id)
     {
         return dorRewardsPunishmentMapper.selectDorRewardsPunishmentById(id);
+    }
+
+    @Override
+    public List<BuildingInfo> getAllBuilding() {
+        return buildingInfoService.selectBuildingInfoList(null);
     }
 
     /**

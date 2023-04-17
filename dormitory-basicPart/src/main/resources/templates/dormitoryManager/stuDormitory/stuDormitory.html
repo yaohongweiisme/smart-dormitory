@@ -16,7 +16,10 @@
                         </li>
                         <li>
                             <label>宿舍楼：</label>
-                            <input type="text" name="buildingId"/>
+                            <select name="buildingId">
+                                <option value="">选择宿舍楼</option>
+                                <option th:each="building:${buildings}" th:value="${building.buildingId}" th:text="${building.buildingName}"></option>
+                            </select>
                         </li>
                         <li>
                             <label>宿舍长学生id：</label>
@@ -92,7 +95,15 @@
                 },
                 {
                     field: 'buildingId',
-                    title: '宿舍楼'
+                    title: '宿舍楼',
+                    formatter(value){
+                        let buildings=[[${buildings}]];
+                        for (let building of buildings) {
+                            if(building.buildingId==value){
+                                return building.buildingName;
+                            }
+                        }
+                    }
                     // visible: false
                 },
                 {
@@ -113,7 +124,16 @@
                 },
                 {
                     field: 'status',
-                    title: '宿舍状态'
+                    title: '宿舍状态',
+                    visible: true,
+                    formatter:function(value){
+                        if(value=='0'){
+                            return "正常"
+                        }else if(value=='1'){
+                            return "闲置"
+                        }
+                        return "停宿"
+                    }
                 },
                 {
                     title: '操作',

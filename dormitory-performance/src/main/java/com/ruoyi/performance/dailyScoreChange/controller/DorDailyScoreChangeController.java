@@ -8,6 +8,8 @@ import com.ruoyi.common.enums.BusinessType;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.performance.dailyScoreChange.domain.DorDailyScoreChange;
 import com.ruoyi.performance.dailyScoreChange.service.IDorDailyScoreChangeService;
+import com.ruoyi.performance.totalScore.domain.DorTotalScore;
+import com.ruoyi.performance.totalScore.service.IDorTotalScoreService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,12 +33,18 @@ public class DorDailyScoreChangeController extends BaseController
     @Autowired
     private IDorDailyScoreChangeService dorDailyScoreChangeService;
 
+    @Autowired
+    private IDorTotalScoreService dorTotalScoreService;
+
     @RequiresPermissions("dormitoryPerformance:dailyScoreChange:view")
     @GetMapping()
-    public String dailyScoreChange()
+    public String dailyScoreChange(ModelMap map)
     {
+        List<DorTotalScore> dorTotalScores = dorTotalScoreService.list();
+        map.put("dorTotalScores",dorTotalScores);
         return prefix + "/dailyScoreChange";
     }
+
 
     /**
      * 查询宿舍每日分数浮动列表

@@ -1,9 +1,9 @@
 package com.ruoyi.dormitory.stuDormitory.service;
 
-import java.util.List;
-
 import com.ruoyi.dormitory.ocpRelationship.domain.OccupancyRelationship;
 import com.ruoyi.dormitory.stuDormitory.domain.Dormitory;
+
+import java.util.List;
 
 /**
  * 学生宿舍信息Service接口
@@ -64,4 +64,6 @@ public interface IDormitoryService
     void addPresentNumber(OccupancyRelationship occupancyRelationship);
 
     List<Long> selectAvailableBedNumbers(String dorId);
+
+    List<String> getDorByBuildId(String buildingId);
 }
