@@ -4,61 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="新增宿舍物资模块并优化相关代码">
+    <list default="true" id="9ae786f8-c40a-4ca1-8c79-a2225cec6073" name="Changes" comment="完善功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/controller/BuildingInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/buildingInfo/controller/BuildingInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/java/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/mapper/dormitoryManager/DormKeeperMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/mapper/dormitoryManager/DormKeeperMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/buildingInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/buildingInfo/buildingInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/occupancyRelationship/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/occupancyRelationship/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/occupancyRelationship/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/occupancyRelationship/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/stuDormitory/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/stuDormitory/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/stuDormitory/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/stuDormitory/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/stuDormitory/stuDormitory.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/stuDormitory/stuDormitory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/controller/DormitoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/IDormitoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/com/ruoyi/dormitory/stuDormitory/service/impl/DormitoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/mapper/dormitoryManager/DormKeeperMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/mapper/dormitoryManager/DormKeeperMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/occupancyRelationship/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/occupancyRelationship/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/occupancyRelationship/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/occupancyRelationship/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/stuDormitory/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/stuDormitory/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/stuDormitory/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/stuDormitory/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/stuDormitory/stuDormitory.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/target/classes/templates/dormitoryManager/stuDormitory/stuDormitory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-material/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-material/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/controller/MaterialApplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/controller/MaterialApplyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/domain/MaterialApply.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/domain/MaterialApply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/mapper/MaterialApplyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/mapper/MaterialApplyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/service/IMaterialApplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/service/IMaterialApplyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/service/impl/MaterialApplyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-material/src/main/java/com/ruoyi/material/apply/service/impl/MaterialApplyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-material/src/main/resources/mapper/material/MaterialApplyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/mapper/material/MaterialApplyMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/material/apply/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/material/apply/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/material/apply/apply.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/material/apply/apply.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/material/apply/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-material/src/main/resources/templates/material/apply/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-payment/src/main/resources/templates/dormitory-payment/projectManager/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-payment/src/main/resources/templates/dormitory-payment/projectManager/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-payment/target/classes/templates/dormitory-payment/projectManager/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-payment/target/classes/templates/dormitory-payment/projectManager/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/controller/DorDailyScoreChangeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/controller/DorDailyScoreChangeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/IDorDailyScoreChangeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/IDorDailyScoreChangeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/impl/DorDailyScoreChangeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/dailyScoreChange/service/impl/DorDailyScoreChangeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/punishment/controller/DorRewardsPunishmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/punishment/controller/DorRewardsPunishmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/punishment/service/IDorRewardsPunishmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/punishment/service/IDorRewardsPunishmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/punishment/service/impl/DorRewardsPunishmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/punishment/service/impl/DorRewardsPunishmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/totalScore/controller/DorTotalScoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/totalScore/controller/DorTotalScoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/totalScore/service/IDorTotalScoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/totalScore/service/IDorTotalScoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/totalScore/service/impl/DorTotalScoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/java/com/ruoyi/performance/totalScore/service/impl/DorTotalScoreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/dailyScoreChange.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/dailyScoreChange/dailyScoreChange.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/punishment/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/punishment/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/punishment/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/punishment/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/punishment/punishment.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-performance/src/main/resources/templates/dormitoryPerformance/punishment/punishment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/static/img/profile.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/static/img/profile.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/system/user/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/resources/templates/system/user/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/static/img/profile.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/static/img/profile.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/system/user/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/target/classes/templates/system/user/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/keeper/keeper.html" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-basicPart/src/main/resources/templates/dormitoryManager/keeper/keeper.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-payment/src/main/java/com/ruoyi/payment/projectManager/service/impl/PaymentProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-payment/src/main/java/com/ruoyi/payment/projectManager/service/impl/PaymentProjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dormitory-payment/src/main/java/com/ruoyi/payment/statusManager/service/impl/PaymentStatusServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dormitory-payment/src/main/java/com/ruoyi/payment/statusManager/service/impl/PaymentStatusServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,32 +49,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/ProjectHome/java/RuoYi/ruoyi-admin/src/main/resources/static/img",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.3831991",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "c8aaedd34ed08c90adcfe6cddf8ac6c2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/ProjectHome/java/RuoYi/ruoyi-admin/src/main/resources/static/img&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3831991&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;c8aaedd34ed08c90adcfe6cddf8ac6c2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\ProjectHome\java\RuoYi\ruoyi-admin\src\main\resources\static\img" />
@@ -231,7 +181,9 @@
       <workItem from="1681397539393" duration="21725000" />
       <workItem from="1681612759705" duration="1785000" />
       <workItem from="1681614590580" duration="11471000" />
-      <workItem from="1681743773587" duration="3490000" />
+      <workItem from="1681743773587" duration="4435000" />
+      <workItem from="1681792570140" duration="8000" />
+      <workItem from="1681796588291" duration="4356000" />
     </task>
     <task id="LOCAL-00001" summary="把mybatis改用mybaits plus,创建和编写了部分模块代码，分别是宿舍信息管理、宿舍缴费、宿舍报修">
       <created>1673774535630</created>
@@ -303,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680072924098</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="完善功能">
+      <created>1681748301169</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681748301169</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +291,8 @@
     <MESSAGE value="修改界面和菜单分布" />
     <MESSAGE value=" 新增screw第三方工具导出数据库表结构文档" />
     <MESSAGE value="新增宿舍物资模块并优化相关代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增宿舍物资模块并优化相关代码" />
+    <MESSAGE value="完善功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

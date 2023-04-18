@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.utils.DateUtils;
-import com.ruoyi.dormitory.stuDormitory.domain.Dormitory;
 import com.ruoyi.dormitory.stuDormitory.mapper.DormitoryMapper;
 import com.ruoyi.payment.projectManager.domain.PaymentProject;
 import com.ruoyi.payment.projectManager.service.IPaymentProjectService;
@@ -79,38 +78,40 @@ public class PaymentStatusServiceImpl extends ServiceImpl<PaymentStatusMapper, P
     public int updatePaymentStatus(PaymentStatus paymentStatus) {
         int rows = paymentStatusMapper.updatePaymentStatus(paymentStatus);
         Long status = paymentStatus.getStatus();
-        if (status==1){
-            Long statusId = paymentStatus.getStatusId();
-            Long projectId = paymentStatusMapper.selectPaymentStatusByStatusId(statusId).getProjectId();
-            boolean buildingPaid=checkIfOneBuildAllPaid(paymentStatus.getDormitoryId(),projectId);
-            if(buildingPaid){
+        handleStatusChange(paymentStatus, status);
+        return rows;
+    }
+    //处理状态变更
+    private void handleStatusChange(PaymentStatus paymentStatus, Long status) {
+        Long statusId = paymentStatus.getStatusId();
+        Long projectId = paymentStatusMapper.selectPaymentStatusByStatusId(statusId).getProjectId();
+        if (status == 1) {        //若已完成，检测其他宿舍是否已完成
+            boolean buildingPaid = checkIfOneBuildAllPaid(projectId);
+            if (buildingPaid) {
                 PaymentProject paymentProject = new PaymentProject();
                 paymentProject.setProjectProgress(1L);
                 paymentProject.setProjectId(projectId);
                 paymentProjectService.updatePaymentProject(paymentProject);
             }
+        } else {      //当更改为未完成状态或原先已经是未完成状态时，都要将缴费项目的状态置为进行中
+            PaymentProject paymentProject = new PaymentProject();
+            paymentProject.setProjectProgress(0L);
+            paymentProject.setProjectId(projectId);
+            paymentProjectService.updatePaymentProject(paymentProject);
         }
-        return rows;
     }
-    private boolean checkIfOneBuildAllPaid(String dormitoryId,Long project_id) {
-        boolean flag=true;
-        Dormitory dormitory = dormitoryMapper.selectDormitoryByDorId(dormitoryId);
-        String buildingId = dormitory.getBuildingId();
-        LambdaQueryWrapper<Dormitory> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(Dormitory::getBuildingId,buildingId);
-        List<Dormitory> dormitories = dormitoryMapper.selectList(wrapper);
-        for (Dormitory dor : dormitories) {
-            String dorId = dor.getDorId();
-            LambdaQueryWrapper<PaymentStatus> queryWrapper = new LambdaQueryWrapper<>();
-            queryWrapper.eq(PaymentStatus::getStatus,0);
-            queryWrapper.eq(PaymentStatus::getDormitoryId,dorId);
-            queryWrapper.eq(PaymentStatus::getProjectId,project_id);
-            if(paymentStatusMapper.selectOne(queryWrapper)!=null){
-                flag=false;
-            }
+    //返回值为true则当前缴费单id对应的缴费项目是已完成的状态
+    private boolean checkIfOneBuildAllPaid(Long project_id) {
+        boolean flag = true;
+        LambdaQueryWrapper<PaymentStatus> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(PaymentStatus::getStatus, 0);
+        queryWrapper.eq(PaymentStatus::getProjectId, project_id);
+        if (paymentStatusMapper.selectOne(queryWrapper) != null) {
+            flag = false;
         }
         return flag;
     }
+
 
     /**
      * 批量删除缴费状态

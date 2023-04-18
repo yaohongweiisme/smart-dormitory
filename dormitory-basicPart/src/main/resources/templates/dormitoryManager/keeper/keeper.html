@@ -57,21 +57,21 @@
         var prefix = ctx + "dormitoryManager/keeper";
 
         $(function() {
-            var options = {
-                url: prefix + "/list",
-                createUrl: prefix + "/add",
-                updateUrl: prefix + "/edit/{id}",
-                removeUrl: prefix + "/remove",
-                exportUrl: prefix + "/export",
-                modalName: "宿管信息",
+            var options = {                 //定义一个名叫option的JavaScript对象
+                url: prefix + "/list",              //封装主页面请求路径
+                createUrl: prefix + "/add",             //封装添加请求路径
+                updateUrl: prefix + "/edit/{id}",       //封装修改请求路径
+                removeUrl: prefix + "/remove",          //封装删除请求路径
+                exportUrl: prefix + "/export",          //封装导出数据路径
+                modalName: "宿管信息",                  //封装模型名字
                 columns: [{
-                    checkbox: true
+                    checkbox: true                      //定义多选属性
                 },
                 {
                     field: 'dkId',
                     title: '宿管id',
                     visible: false
-                },
+                },                  //对应Java对象属性的字段，通过thymeleaf渲染字段信息
                 {
                     field: 'name',
                     title: '宿管名字'
@@ -97,9 +97,9 @@
                         actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.dkId + '\')"><i class="fa fa-remove"></i>删除</a>');
                         return actions.join('');
                     }
-                }]
+                }]                  //封装每行数据的按钮
             };
-            $.table.init(options);
+            $.table.init(options);                  //提交option参数进行表格数据的初始化
         });
     </script>
 </body>

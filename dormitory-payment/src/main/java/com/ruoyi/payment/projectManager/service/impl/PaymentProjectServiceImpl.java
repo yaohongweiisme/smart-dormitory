@@ -66,7 +66,7 @@ public class PaymentProjectServiceImpl implements IPaymentProjectService
     {
         paymentProject.setCreateTime(DateUtils.getNowDate());
         int insertResult = paymentProjectMapper.insertPaymentProject(paymentProject);
-        if(insertResult!=0){
+        if(insertResult!=0){            //插入缴费项目成功时插入对应的缴费状态单
             PaymentStatus paymentStatus = new PaymentStatus();
             paymentStatus.setProjectId(paymentProject.getProjectId());
             paymentStatus.setStatus(0L);
@@ -80,7 +80,7 @@ public class PaymentProjectServiceImpl implements IPaymentProjectService
         }
         return insertResult;
     }
-
+    //通过宿舍楼id获取所有宿舍对象
     private List<Dormitory> getDormitoriesByBuildingId(PaymentProject paymentProject) {
         String projectObject = paymentProject.getProjectObject();
         LambdaQueryWrapper<Dormitory> wrapper = new LambdaQueryWrapper<>();
